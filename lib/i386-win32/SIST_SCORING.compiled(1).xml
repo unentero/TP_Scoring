@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <Compiler Value="C:\lazarus\fpc\3.2.2\bin\i386-win32\fpc.exe" Date="1488545472"/>
+  <Params Value=" -MObjFPC -Scghi -O1 -gw2 -godwarfsets -gl -l -vewnhibq &quot;-FiC:\Users\emmoc\OneDrive\TP FINAL GRUPO 10\lib\i386-win32&quot; &quot;-FuC:\Users\emmoc\OneDrive\TP FINAL GRUPO 10\TP FINAL GRUPO 10&quot; &quot;-FuC:\Users\emmoc\OneDrive\TP FINAL GRUPO 10\&quot; &quot;-FUC:\Users\emmoc\OneDrive\TP FINAL GRUPO 10\lib\i386-win32\&quot; &quot;-FEC:\Users\emmoc\OneDrive\TP FINAL GRUPO 10\&quot; &quot;-oC:\Users\emmoc\OneDrive\TP FINAL GRUPO 10\SIST_SCORING.exe&quot; SIST_SCORING.lpr"/>
+</CONFIG>

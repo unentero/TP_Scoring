@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="12"/>
+    <BuildModes Active="Default"/>
+    <Units>
+      <Unit>
+        <Filename Value="SIST_SCORING.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <CursorPos X="10" Y="4"/>
+        <UsageCount Value="213"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="TP FINAL GRUPO 10\types.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="TYPES"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="4" Y="48"/>
+        <UsageCount Value="213"/>
+      </Unit>
+      <Unit>
+        <Filename Value="TP FINAL GRUPO 10\archivos_conductores.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="ARCHIVOS_CONDUCTORES"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="122"/>
+        <UsageCount Value="213"/>
+      </Unit>
+      <Unit>
+        <Filename Value="TP FINAL GRUPO 10\archivos_infracciones.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="ARCHIVOS_INFRACCIONES"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="36" Y="6"/>
+        <UsageCount Value="213"/>
+      </Unit>
+      <Unit>
+        <Filename Value="TP FINAL GRUPO 10\abmc_general.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="ABMC_GENERAL"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="238"/>
+        <CursorPos X="38" Y="231"/>
+        <UsageCount Value="213"/>
+      </Unit>
+      <Unit>
+        <Filename Value="TP FINAL GRUPO 10\amc_infracciones.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="AMC_INFRACCIONES"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="4"/>
+        <CursorPos X="95" Y="8"/>
+        <UsageCount Value="213"/>
+      </Unit>
+      <Unit>
+        <Filename Value="TP FINAL GRUPO 10\listados.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="LISTADOS"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="29"/>
+        <CursorPos X="23" Y="36"/>
+        <UsageCount Value="213"/>
+      </Unit>
+      <Unit>
+        <Filename Value="TP FINAL GRUPO 10\porcentajes.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="Porcentajes"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="145"/>
+        <CursorPos X="5" Y="178"/>
+        <UsageCount Value="213"/>
+      </Unit>
+      <Unit>
+        <Filename Value="TP FINAL GRUPO 10\menu.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="MENU"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="98"/>
+        <CursorPos X="9" Y="102"/>
+        <UsageCount Value="213"/>
+      </Unit>
+      <Unit>
+        <Filename Value="TP FINAL GRUPO 10\validaciones.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="VALIDACIONES"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="59"/>
+        <CursorPos X="5" Y="123"/>
+        <UsageCount Value="213"/>
+      </Unit>
+      <Unit>
+        <Filename Value="TP FINAL GRUPO 10\florituras.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="FLORITURAS"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="45"/>
+        <CursorPos X="5" Y="78"/>
+        <UsageCount Value="213"/>
+      </Unit>
+      <Unit>
+        <Filename Value="TP FINAL GRUPO 10\arboles.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="ARBOLES"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="25" Y="3"/>
+        <UsageCount Value="213"/>
+      </Unit>
+      <Unit>
+        <Filename Value="manejo_infracciones.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="Manejo_Infracciones"/>
+        <EditorIndex Value="9"/>
+        <TopLine Value="23"/>
+        <CursorPos X="29" Y="43"/>
+        <UsageCount Value="201"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="manejo_conductores.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="Manejo_conductores"/>
+        <EditorIndex Value="8"/>
+        <TopLine Value="12"/>
+        <CursorPos X="11" Y="11"/>
+        <UsageCount Value="201"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="abmc_general.pas"/>
+        <UnitName Value="ABMC_GENERAL"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="241"/>
+        <CursorPos X="32" Y="257"/>
+        <UsageCount Value="103"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="amc_infracciones.pas"/>
+        <UnitName Value="AMC_INFRACCIONES"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="2"/>
+        <TopLine Value="155"/>
+        <CursorPos X="29" Y="169"/>
+        <UsageCount Value="103"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="arboles.pas"/>
+        <UnitName Value="ARBOLES"/>
+        <EditorIndex Value="3"/>
+        <CursorPos X="32" Y="34"/>
+        <UsageCount Value="103"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="archivos_conductores.pas"/>
+        <UnitName Value="ARCHIVOS_CONDUCTORES"/>
+        <EditorIndex Value="4"/>
+        <TopLine Value="11"/>
+        <CursorPos X="11" Y="27"/>
+        <UsageCount Value="103"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="archivos_infracciones.pas"/>
+        <UnitName Value="ARCHIVOS_INFRACCIONES"/>
+        <EditorIndex Value="5"/>
+        <CursorPos X="18"/>
+        <UsageCount Value="103"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="florituras.pas"/>
+        <UnitName Value="FLORITURAS"/>
+        <EditorIndex Value="6"/>
+        <CursorPos X="31" Y="58"/>
+        <UsageCount Value="103"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="listados.pas"/>
+        <UnitName Value="LISTADOS"/>
+        <EditorIndex Value="7"/>
+        <TopLine Value="161"/>
+        <CursorPos X="13" Y="149"/>
+        <UsageCount Value="103"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="menu.pas"/>
+        <UnitName Value="MENU"/>
+        <EditorIndex Value="10"/>
+        <TopLine Value="98"/>
+        <CursorPos X="8" Y="121"/>
+        <UsageCount Value="103"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="porcentajes.pas"/>
+        <UnitName Value="Porcentajes"/>
+        <EditorIndex Value="11"/>
+        <CursorPos X="69" Y="98"/>
+        <UsageCount Value="103"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="validaciones.pas"/>
+        <UnitName Value="VALIDACIONES"/>
+        <EditorIndex Value="13"/>
+        <CursorPos X="17" Y="21"/>
+        <UsageCount Value="103"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\Chatterbot (ulises)\drive-download-20250722T111119Z-1-001\donaldbot.pas"/>
+        <UnitName Value="Donald"/>
+        <EditorIndex Value="-1"/>
+        <WindowIndex Value="-1"/>
+        <CursorPos X="40" Y="9"/>
+        <UsageCount Value="10"/>
+      </Unit>
+      <Unit>
+        <Filename Value="types.pas"/>
+        <UnitName Value="TYPES"/>
+        <EditorIndex Value="12"/>
+        <UsageCount Value="10"/>
+        <Loaded Value="True"/>
+      </Unit>
+    </Units>
+    <JumpHistory HistoryIndex="-1"/>
+    <RunParams>
+      <FormatVersion Value="2"/>
+      <Modes ActiveMode="default"/>
+    </RunParams>
+    <HistoryLists>
+      <List Name="LaunchingApplication" Type="File" Count="3">
+        <Item1 Value="/sbin/konsole -T &apos;Lazarus Run Output&apos; -e $(LazarusDir)/tools/runwait.sh $(TargetCmdLine)"/>
+        <Item2 Value="\sbin\konsole -T &apos;Lazarus Run Output&apos; -e $(LazarusDir)\tools\runwait.sh $(TargetCmdLine)"/>
+        <Item3 Value="C:\WINDOWS\system32\cmd.exe /C ${TargetCmdLine}"/>
+      </List>
+    </HistoryLists>
+  </ProjectSession>
+  <Debugging>
+    <BreakPoints>
+      <Item>
+        <Kind Value="bpkData"/>
+        <WatchData Value="AMBC_INFRACCIONES"/>
+        <WatchScope Value="wpsGlobal"/>
+        <WatchKind Value="wpkWrite"/>
+      </Item>
+    </BreakPoints>
+  </Debugging>
+</CONFIG>
