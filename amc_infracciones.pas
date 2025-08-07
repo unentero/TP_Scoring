@@ -125,8 +125,8 @@ begin
   while tecla<>#13 do
     begin
     //colocar(inttostr(index),15,10,30);
-    Colocar('| N° Infracción | Descripción                                   |', lightblue, 10, 8);
-    Colocar('+---------------+-----------------------------------------------+', lightblue, 10, 9);
+    //Colocar('| N° Infracción | Descripción                                   |', lightblue, 10, 8);
+    //Colocar('+---------------+-----------------------------------------------+', lightblue, 10, 9);
     Pag_infracciones(numpag,index); // Muestra las infracciones de la página actual
     y := 10 + (index-1); // Posición vertical correcta
     tecla := ReadKey;
@@ -177,8 +177,9 @@ var
 begin
      titulo (' Infraccion ');
            r.DNI:=x;
-           colocar((FormatDateTime('(dd/mm/yyyy)',Date)),15,40,6);
-           colocar('(Navegue las infracciones con las flechas)',15,10,26);
+           colocar('|Fecha Infraccion: '+(FormatDateTime('(dd/mm/yyyy)'+'|',Date)),green,36,6);
+           colocar('|DNI conductor: '+r.DNI, green,10,6);
+           colocar('(Navegue las infracciones con las flechas)',15,10,30);
            DecodeDate(Date,anio,mes,dia);
            r.fecha_infraccion.dia := dia;
            r.fecha_infraccion.mes := mes;

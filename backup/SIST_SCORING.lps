@@ -130,19 +130,19 @@
       <Unit>
         <Filename Value="abmc_general.pas"/>
         <UnitName Value="ABMC_GENERAL"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
-        <TopLine Value="80"/>
-        <CursorPos X="65" Y="117"/>
+        <TopLine Value="53"/>
+        <CursorPos X="166" Y="73"/>
         <UsageCount Value="103"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="amc_infracciones.pas"/>
         <UnitName Value="AMC_INFRACCIONES"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="2"/>
-        <TopLine Value="125"/>
-        <CursorPos X="29" Y="169"/>
+        <TopLine Value="152"/>
+        <CursorPos X="92" Y="180"/>
         <UsageCount Value="103"/>
         <Loaded Value="True"/>
       </Unit>
@@ -249,8 +249,8 @@
         <Caret Line="194" Column="8" TopLine="170"/>
       </Position>
       <Position>
-        <Filename Value="menu.pas"/>
-        <Caret Line="193" Column="52" TopLine="203"/>
+        <Filename Value="amc_infracciones.pas"/>
+        <Caret Line="129" Column="7" TopLine="105"/>
       </Position>
     </JumpHistory>
     <RunParams>
