@@ -17,13 +17,10 @@ Type
       mes:string[4];
       anio:string[4];
     end;
-function todo_letras(clave: string): boolean;
-function todo_numeros(clave: string): boolean;
-function es_dia(dia:string):boolean;
-function es_mes(mes:string):boolean;
-function es_anio(anio:string):boolean;
+Procedure verificar_todo_numeros(clave:string;x,y:cardinal);
+Procedure verificar_todo_letras(clave:string;x,y:cardinal);
+Procedure verificar_fecha(clave:string;x,y:cardinal);
 procedure ConvertirFechaStringADate(var fechaRecord: FECHA; fechaString: string);
-
 implementation
 
 function numero(car: string): boolean;
@@ -61,6 +58,13 @@ begin
           end;
      end;
 end;
+Procedure verificar_todo_numeros(clave:string;x,y:cardinal);
+begin
+repeat
+  gotoxy(x,y);
+  readln(clave)
+until todo_numeros(clave);
+end;
 
 function todo_letras(clave: string): boolean;
 var
@@ -76,6 +80,13 @@ begin
           todo_letras:= false;
           end;
      end;
+end;
+Procedure verificar_todo_letras(clave:string;x:cardinal;y:cardinal);
+begin
+repeat
+  gotoxy(x,y);
+  readln(clave)
+until todo_letras(clave);
 end;
 function es_dia(dia:string):boolean;
 var
@@ -128,6 +139,91 @@ begin
   Val(mesStr, fechaRecord.mes);
   Val(anioStr, fechaRecord.anio);
 end;
+function EsFechaValida(fecha: string): Boolean;
+var
+  dia, mes, anio: Integer;
+begin
+  // Verificar la longitud del string
+  if Length(fecha) <> 10 then
+  begin
+    EsFechaValida := False;
+    Exit;
+  end;
 
+  // Verificar que los separadores sean '/'
+  if (fecha[3] <> '/') or (fecha[6] <> '/') then
+  begin
+    EsFechaValida := False;
+    Exit;
+  end;
 
+  // Extraer día, mes y año
+  try
+    dia := StrToInt(Copy(fecha, 1, 2));
+    mes := StrToInt(Copy(fecha, 4, 2));
+    anio := StrToInt(Copy(fecha, 7, 4));
+  except
+    // Si ocurre una excepción al convertir, la fecha no es válida
+    EsFechaValida := False;
+    Exit;
+  end;
+
+  // Validar el año
+  if (anio < 1) or (anio > 9999) then
+  begin
+    EsFechaValida := False;
+    Exit;
+  end;
+
+  // Validar el mes
+  if (mes < 1) or (mes > 12) then
+  begin
+    EsFechaValida := False;
+    Exit;
+  end;
+
+  // Validar el día
+  case mes of
+    1, 3, 5, 7, 8, 10, 12:
+      if (dia < 1) or (dia > 31) then
+      begin
+        EsFechaValida := False;
+        Exit;
+      end;
+    4, 6, 9, 11:
+      if (dia < 1) or (dia > 30) then
+      begin
+        EsFechaValida := False;
+        Exit;
+      end;
+    2:
+      // Validar febrero y años bisiestos
+      if (anio mod 4 = 0) and ((anio mod 100 <> 0) or (anio mod 400 = 0)) then
+      begin
+        if (dia < 1) or (dia > 29) then
+        begin
+          EsFechaValida := False;
+          Exit;
+        end;
+      end
+      else
+      begin
+        if (dia < 1) or (dia > 28) then
+        begin
+          EsFechaValida := False;
+          Exit;
+        end;
+      end;
+  end;
+
+  // Si todas las validaciones pasan, la fecha es válida
+  EsFechaValida := True;
+end;
+Procedure verificar_fecha(clave:string;x:cardinal;y:cardinal);
+begin
+repeat
+  gotoxy(x,y);
+  readln(clave)
+until EsFechaValida(clave);
+end;
 end.

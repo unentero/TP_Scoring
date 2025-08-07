@@ -130,19 +130,19 @@
       <Unit>
         <Filename Value="abmc_general.pas"/>
         <UnitName Value="ABMC_GENERAL"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
-        <TopLine Value="53"/>
-        <CursorPos X="166" Y="73"/>
+        <TopLine Value="130"/>
+        <CursorPos X="40" Y="147"/>
         <UsageCount Value="103"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="amc_infracciones.pas"/>
         <UnitName Value="AMC_INFRACCIONES"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="2"/>
-        <TopLine Value="152"/>
-        <CursorPos X="92" Y="180"/>
+        <TopLine Value="245"/>
+        <CursorPos X="32" Y="259"/>
         <UsageCount Value="103"/>
         <Loaded Value="True"/>
       </Unit>
@@ -191,7 +191,8 @@
         <Filename Value="menu.pas"/>
         <UnitName Value="MENU"/>
         <EditorIndex Value="10"/>
-        <CursorPos X="11" Y="105"/>
+        <TopLine Value="19"/>
+        <CursorPos X="79" Y="27"/>
         <UsageCount Value="103"/>
         <Loaded Value="True"/>
       </Unit>
@@ -207,8 +208,7 @@
         <Filename Value="validaciones.pas"/>
         <UnitName Value="VALIDACIONES"/>
         <EditorIndex Value="12"/>
-        <TopLine Value="39"/>
-        <CursorPos X="41" Y="70"/>
+        <CursorPos X="31" Y="22"/>
         <UsageCount Value="103"/>
         <Loaded Value="True"/>
       </Unit>
@@ -227,7 +227,7 @@
         <UsageCount Value="13"/>
       </Unit>
     </Units>
-    <JumpHistory HistoryIndex="5">
+    <JumpHistory HistoryIndex="21">
       <Position>
         <Filename Value="abmc_general.pas"/>
         <Caret Line="58" Column="42" TopLine="48"/>
@@ -251,6 +251,70 @@
       <Position>
         <Filename Value="amc_infracciones.pas"/>
         <Caret Line="129" Column="7" TopLine="105"/>
+      </Position>
+      <Position>
+        <Filename Value="amc_infracciones.pas"/>
+        <Caret Line="184" Column="110" TopLine="152"/>
+      </Position>
+      <Position>
+        <Filename Value="abmc_general.pas"/>
+        <Caret Line="73" Column="166"/>
+      </Position>
+      <Position>
+        <Filename Value="abmc_general.pas"/>
+        <Caret Line="161" Column="40" TopLine="48"/>
+      </Position>
+      <Position>
+        <Filename Value="abmc_general.pas"/>
+        <Caret Line="166" Column="27" TopLine="152"/>
+      </Position>
+      <Position>
+        <Filename Value="abmc_general.pas"/>
+        <Caret Line="293" Column="51" TopLine="269"/>
+      </Position>
+      <Position>
+        <Filename Value="abmc_general.pas"/>
+        <Caret Line="290" Column="6" TopLine="290"/>
+      </Position>
+      <Position>
+        <Filename Value="amc_infracciones.pas"/>
+        <Caret Line="277" Column="113" TopLine="250"/>
+      </Position>
+      <Position>
+        <Filename Value="validaciones.pas"/>
+        <Caret Line="223" Column="9" TopLine="193"/>
+      </Position>
+      <Position>
+        <Filename Value="validaciones.pas"/>
+        <Caret Line="22" Column="40" TopLine="5"/>
+      </Position>
+      <Position>
+        <Filename Value="validaciones.pas"/>
+        <Caret Line="222" Column="51" TopLine="196"/>
+      </Position>
+      <Position>
+        <Filename Value="abmc_general.pas"/>
+        <Caret Line="151" Column="30" TopLine="131"/>
+      </Position>
+      <Position>
+        <Filename Value="abmc_general.pas"/>
+        <Caret Line="273" Column="32" TopLine="253"/>
+      </Position>
+      <Position>
+        <Filename Value="abmc_general.pas"/>
+        <Caret Line="290" Column="39" TopLine="276"/>
+      </Position>
+      <Position>
+        <Filename Value="amc_infracciones.pas"/>
+        <Caret Line="254" Column="25" TopLine="239"/>
+      </Position>
+      <Position>
+        <Filename Value="amc_infracciones.pas"/>
+        <Caret Line="259" Column="32" TopLine="245"/>
+      </Position>
+      <Position>
+        <Filename Value="validaciones.pas"/>
+        <Caret Line="22" Column="31"/>
       </Position>
     </JumpHistory>
     <RunParams>

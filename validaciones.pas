@@ -17,13 +17,10 @@ Type
       mes:string[4];
       anio:string[4];
     end;
-function todo_letras(clave: string): boolean;
-function todo_numeros(clave: string): boolean;
-function es_dia(dia:string):boolean;
-function es_mes(mes:string):boolean;
-function es_anio(anio:string):boolean;
+Procedure verificar_todo_numeros(var clave:string;x,y:cardinal);
+Procedure verificar_todo_letras(var clave:string;x,y:cardinal);
+Procedure verificar_fecha(var clave:string;x,y:cardinal);
 procedure ConvertirFechaStringADate(var fechaRecord: FECHA; fechaString: string);
-function EsFechaValida(fecha: string): Boolean;
 implementation
 
 function numero(car: string): boolean;
@@ -61,6 +58,13 @@ begin
           end;
      end;
 end;
+Procedure verificar_todo_numeros(var clave:string;x,y:cardinal);
+begin
+repeat
+  gotoxy(x,y);
+  readln(clave)
+until todo_numeros(clave);
+end;
 
 function todo_letras(clave: string): boolean;
 var
@@ -76,6 +80,13 @@ begin
           todo_letras:= false;
           end;
      end;
+end;
+Procedure verificar_todo_letras(var clave:string;x:cardinal;y:cardinal);
+begin
+repeat
+  gotoxy(x,y);
+  readln(clave)
+until todo_letras(clave);
 end;
 function es_dia(dia:string):boolean;
 var
@@ -208,5 +219,11 @@ begin
   // Si todas las validaciones pasan, la fecha es válida
   EsFechaValida := True;
 end;
-
+Procedure verificar_fecha(var clave:string;x:cardinal;y:cardinal);
+begin
+repeat
+  gotoxy(x,y);
+  readln(clave)
+until EsFechaValida(clave);
+end;
 end.

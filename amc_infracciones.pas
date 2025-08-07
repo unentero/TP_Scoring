@@ -252,18 +252,12 @@ abrir_archivo_infracciones(arch_inf);
   colocar('Ingrese DNI del conductor',15,42,6);
   colocar('En caso de no tenerlo, escriba 0 para buscar por nombre',15,42,7);
   colocar('- ',15,42,8);
-  repeat
-  gotoxy(44,8);
-  READLN(x);
-  until todo_numeros(x);
+  verificar_todo_numeros(x,44,8);
       if x = '0' then
       begin
         colocar('Ingrese el Nombre Completo del conductor',15,42,10);
         colocar('- ',15,42,11);
-        repeat
-        gotoxy(44,11);
-        READLN(x);
-        until todo_letras(x);
+        verificar_todo_letras(x,44,11);
         busqueda_cond(arbol_apynom,pos,x);
       end
       else
@@ -278,15 +272,7 @@ abrir_archivo_infracciones(arch_inf);
     end
     else
     begin
-    colocar ('El conductor buscado no se encuentra en el Sistema',4,42,13);
-    colocar ('Quiere darlo de alta?(S/N)',3,42,14);
-    //colocar('1 - Si / Otra tecla - Salir',2,42,15);
-    colocar('- ',15,42,16);
-    gotoxy(44,16);
-    readln (res);
-    case Upcase(res) of
-    'S':alta_conductores(arch_cond,arbol_dni,arbol_apynom,x);
-    end;
+    colocar ('El conductor buscado no se encuentra en el Sistema, este caso será enviado a Legales',red,42,13);
     end;
    close(arch_cond);
    close(arch_inf);

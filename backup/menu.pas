@@ -31,16 +31,12 @@ begin
      '2':begin
        clrscr;
        colocar('Ingrese fecha de inicio (DD/MM/AAAA):',15,10,10);
-       repeat
        gotoxy(47,10);
-       readln(fecha1);
-       until esfechavalida(fecha1);
+       verificar_fecha(fecha1);
        ConvertirFechaStringADate(fechainicio,fecha1);
        colocar('Ingrese fecha de final (DD/MM/AAAA):',15,10,12);
-       repeat
        gotoxy(46,12);
-       readln(fecha2);
-       until esfechavalida(fecha2);
+       verificar_fecha(fecha2);
        ConvertirFechaStringADate(fechafin,fecha2);
        ListarInfraccionesEntreFechas(arch_inf,fechaInicio,fechaFin);
        end;

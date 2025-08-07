@@ -136,6 +136,7 @@ procedure cargar_conductores(var arch_cond: ARCHIVO_CONDUCTORES; var r: DATOS_CO
 var
  dia, mes, anio:word;
  ans:char;
+ apynom,telefono:string;
 begin
      titulo (' Alta de la Persona ');
      begin
@@ -143,15 +144,11 @@ begin
            r.DNI:=x;
            colocar('DNI: ' + x,15,40,7);
            colocar('APELLIDO(S) Y NOMBRE(S): ',15,40,9);
-           repeat
-           gotoxy (66,9);
-           readln(r.APYNOM);
-           until todo_letras(r.APYNOM);
+           verificar_todo_letras(apynom,66,9);
+           r.apynom:=apynom;
            colocar('TELEFONO: ',15,40,11);
-           repeat
-           gotoxy (51,11);
-           readln(r.TELEFONO);
-           until todo_numeros(r.TELEFONO);
+           verificar_todo_numeros(telefono,51,11);
+           r.telefono:=telefono;
            colocar('E-MAIL: ',15,40,13);
            gotoxy (49,13);
            readln(r.MAIL);
@@ -272,18 +269,12 @@ begin
   colocar('Ingrese DNI de conductor',15,42,6);
   colocar('En caso de no tenerlo, escriba 0 para buscar por Nombre',15,42,7);
   colocar('- ',15,42,8);
-  repeat
-  gotoxy(44,8);
-  READLN(x);
-  until todo_numeros(x);
+  verificar_todo_numeros(x,44,8);
       if x = '0' then
       begin
         colocar('Ingrese el Apellido y Nombre del Conductor',15,42,10);
         colocar('- ',15,42,11);
-        repeat
-        gotoxy(44,11);
-        READLN(y);
-        until todo_letras(y);
+        verificar_todo_letras(y,44,11);
         busqueda_cond(arbol_apynom,pos,y);
         if pos = -1 then
            begin
@@ -298,12 +289,9 @@ begin
            until (op = '0') or (op = '1');
             if op = '1' then
               begin
-               colocar('Ingrese DNI de Propietario',15,42,18);
+               colocar('Ingrese DNI de Conductor',15,42,18);
                colocar('- ',15,42,19);
-               repeat
-               gotoxy(44,19);
-               READLN(x);
-               until todo_numeros(x);
+               verificar_todo_numeros(x,44,19);
                alta_conductores(arch_cond,arbol_dni,arbol_apynom,x);
               end;
            end;
