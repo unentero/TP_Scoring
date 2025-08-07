@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CONFIG>
   <Compiler Value="/sbin/fpc" Date="1714586784"/>
-  <Params Value="-MObjFPC -Scghi -Cg -O1 -gw2 -godwarfsets -gl -l -vewnhibq &apos;-Fi/home/admin/Documentos/TP Algoritmos/TP FINAL GRUPO 10/lib/x86_64-linux&apos; &apos;-Fu/home/admin/Documentos/TP Algoritmos/TP FINAL GRUPO 10/&apos; &apos;-Fu/home/admin/Documentos/TP Algoritmos/TP FINAL GRUPO 10/TP FINAL GRUPO 10&apos; &apos;-FU/home/admin/Documentos/TP Algoritmos/TP FINAL GRUPO 10/lib/x86_64-linux/&apos; &apos;-FE/home/admin/Documentos/TP Algoritmos/TP FINAL GRUPO 10/&apos; &apos;-o/home/admin/Documentos/TP Algoritmos/TP FINAL GRUPO 10/SIST_SCORING&apos; SIST_SCORING.lpr"/>
+  <Params Value="-MObjFPC -Scghi -Cg -O1 -gw2 -godwarfsets -gl -l -vewnhibq -Fi/home/admin/Documentos/Facultad/TP_Scoring/lib/x86_64-linux -Fu/home/admin/Documentos/Facultad/TP_Scoring/ &apos;-Fu/home/admin/Documentos/Facultad/TP_Scoring/TP FINAL GRUPO 10&apos; -FU/home/admin/Documentos/Facultad/TP_Scoring/lib/x86_64-linux/ -FE/home/admin/Documentos/Facultad/TP_Scoring/ -o/home/admin/Documentos/Facultad/TP_Scoring/SIST_SCORING SIST_SCORING.lpr"/>
 </CONFIG>

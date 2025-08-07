@@ -132,8 +132,8 @@
         <UnitName Value="ABMC_GENERAL"/>
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
-        <TopLine Value="191"/>
-        <CursorPos X="34" Y="262"/>
+        <TopLine Value="80"/>
+        <CursorPos X="30" Y="96"/>
         <UsageCount Value="103"/>
         <Loaded Value="True"/>
       </Unit>
@@ -158,7 +158,7 @@
         <Filename Value="archivos_conductores.pas"/>
         <UnitName Value="ARCHIVOS_CONDUCTORES"/>
         <EditorIndex Value="4"/>
-        <CursorPos X="11" Y="27"/>
+        <CursorPos X="70" Y="9"/>
         <UsageCount Value="103"/>
         <Loaded Value="True"/>
       </Unit>
@@ -166,7 +166,7 @@
         <Filename Value="archivos_infracciones.pas"/>
         <UnitName Value="ARCHIVOS_INFRACCIONES"/>
         <EditorIndex Value="5"/>
-        <CursorPos X="18"/>
+        <CursorPos X="68" Y="9"/>
         <UsageCount Value="103"/>
         <Loaded Value="True"/>
       </Unit>
@@ -191,8 +191,7 @@
         <Filename Value="menu.pas"/>
         <UnitName Value="MENU"/>
         <EditorIndex Value="10"/>
-        <TopLine Value="98"/>
-        <CursorPos X="8" Y="121"/>
+        <CursorPos X="11" Y="105"/>
         <UsageCount Value="103"/>
         <Loaded Value="True"/>
       </Unit>
@@ -228,7 +227,7 @@
         <UsageCount Value="13"/>
       </Unit>
     </Units>
-    <JumpHistory HistoryIndex="1">
+    <JumpHistory HistoryIndex="5">
       <Position>
         <Filename Value="abmc_general.pas"/>
         <Caret Line="58" Column="42" TopLine="48"/>
@@ -236,6 +235,22 @@
       <Position>
         <Filename Value="abmc_general.pas"/>
         <Caret Line="150" Column="23" TopLine="119"/>
+      </Position>
+      <Position>
+        <Filename Value="abmc_general.pas"/>
+        <Caret Line="204" Column="86" TopLine="160"/>
+      </Position>
+      <Position>
+        <Filename Value="abmc_general.pas"/>
+        <Caret Line="117" Column="67" TopLine="82"/>
+      </Position>
+      <Position>
+        <Filename Value="menu.pas"/>
+        <Caret Line="194" Column="8" TopLine="170"/>
+      </Position>
+      <Position>
+        <Filename Value="menu.pas"/>
+        <Caret Line="193" Column="52" TopLine="203"/>
       </Position>
     </JumpHistory>
     <RunParams>

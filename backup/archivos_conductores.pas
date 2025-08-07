@@ -6,8 +6,8 @@ interface
 uses
   crt,validaciones;
 const
-  //ruta1='/home/admin/Documentos/TP Algoritmos/TP FINAL GRUPO 10/ARCHIVOS TPFINAL/conductores.dat';
-  ruta1='C:\Scoring\conductores.dat';
+  ruta1='/home/admin/Documentos/TP Algoritmos/TP FINAL GRUPO 10/ARCHIVOS TPFINAL/conductores.dat';
+  //ruta1='C:\Scoring\conductores.dat';
   n=100;
     type
     datos_conductores = record

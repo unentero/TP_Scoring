@@ -2,7 +2,7 @@ unit ABMC_GENERAL;
 {$codepage utf8}
 interface
 uses
-  ARBOLES,ARCHIVOS_CONDUCTORES,ARCHIVOS_INFRACCIONES,TYPES,FLORITURAS,VALIDACIONES,{crt,sysutils,}Manejo_conductores,Manejo_Infracciones;
+  ARBOLES,ARCHIVOS_CONDUCTORES,ARCHIVOS_INFRACCIONES,TYPES,FLORITURAS,VALIDACIONES,crt,sysutils,Manejo_conductores,Manejo_Infracciones;
 
 procedure ABMC_CONDUCTORES (var arch_cond: ARCHIVO_CONDUCTORES;var arch_inf: ARCHIVO_INFRACCIONES;var arbol_dni: PUNTERO; var arbol_apynom: PUNTERO);
 procedure alta_conductores(var arch_cond: ARCHIVO_CONDUCTORES; var arbol_dni: PUNTERO; var arbol_apynom: PUNTERO;var a:string);
@@ -91,23 +91,22 @@ var
   op: string[1];
 begin
     repeat
-     clrscr;
-     gotoxy (40,4);
+     gotoxy (40,28);
      textcolor(11);
-     writeln('******************** Modificación **********************');
+     writeln('- Modificacion:');
      textcolor(15);
-     gotoxy (40,8);
-     writeln('¿Qué quiere modificar de ', nombre, '?');
-     gotoxy (40,10);
+     gotoxy (40,32);
+     writeln('Que quiere modificar de ', nombre, '?');
+     gotoxy (40,34);
      write('1. Telefono ');
-     gotoxy (40,12);
+     gotoxy (40,36);
      writeln('2. Mail ');
-     gotoxy (40,14);
-     gotoxy (40,20);
+     gotoxy (40,38);
+     gotoxy (40,44);
      writeln('0. Salir');
-     gotoxy (40,22);
+     gotoxy (40,46);
      writeln('- ');
-     gotoxy (42,22);
+     gotoxy (42,46);
      readln(op);
      case op of
      '1': modificacion(arch_cond, pos, 1);
@@ -115,7 +114,7 @@ begin
      else
      if (op<>'')and(op<>'0') then
      begin
-         colocar('Opción inválida. Vuelva a intentarlo',12,30,24);
+         colocar('Opción inválida. Vuelva a intentarlo',12,50,46);
          pulse_para_continuar;
      end;
      end;

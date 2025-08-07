@@ -118,11 +118,7 @@ begin
    gotoxy (32,18);
    readln(op);
    case op of
-   '1':begin
-     abrir_archivo_conductores(arch_cond);
-     ABMC_CONDUCTORES (arch_cond, arch_inf, arbol_dni, arbol_apynom);
-     close(arch_cond);
-        end;
+   '1':ABMC_CONDUCTORES (arch_cond, arch_inf, arbol_dni, arbol_apynom);
    '2':AMBC_INFRACCIONES (arch_cond,arch_inf,arbol_dni,arbol_apynom,arch_inf);
    '3':menu_listados(arbol_apynom,arch_cond,arch_inf);
    '4':menu_estadisticas(arch_cond,arch_inf);

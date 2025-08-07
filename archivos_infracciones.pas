@@ -6,7 +6,7 @@ interface
 uses
   crt,validaciones;
 const
-ruta2='/home/admin/Documentos/TP Algoritmos/TP FINAL GRUPO 10/ARCHIVOS TPFINAL/infracciones.dat' ;
+ruta2='/home/admin/Documentos/Facultad/TP_Scoring/ARCHIVOS TPFINAL/infracciones.dat' ;
 //ruta2='C:\Scoring\infracciones.dat';
 n=100;
 type
