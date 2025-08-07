@@ -1,2 +1,2 @@
-#Descripción
-Trabajo Practico Final de la materia "Algoritmos y Estructura de datos" de primer año de la carrera de Ingeniería en Sistemas de Información en UTN. La consigna de este trabajo fue hacer un sistema de Scoring usando como bases de datos dos archivos: uno de conductores y uno de infracciones y utilizando dos arboles binarios ordenados por contenido como indice de dichos archivos.
+# Descripción
+Este es el trabajo práctico final de la materia "Algoritmos y Estructura de datos" de primer año de la carrera de Ingeniería en Sistemas de Información en UTN. La consigna de este trabajo fue hacer un sistema de Scoring usando como bases de datos dos archivos: uno de conductores y uno de infracciones y utilizando dos arboles binarios ordenados por contenido como indice de dichos archivos.
