@@ -131,17 +131,16 @@
         <Filename Value="abmc_general.pas"/>
         <UnitName Value="ABMC_GENERAL"/>
         <EditorIndex Value="1"/>
-        <TopLine Value="241"/>
-        <CursorPos X="32" Y="257"/>
+        <TopLine Value="138"/>
+        <CursorPos X="23" Y="150"/>
         <UsageCount Value="103"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="amc_infracciones.pas"/>
         <UnitName Value="AMC_INFRACCIONES"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="2"/>
-        <TopLine Value="155"/>
+        <TopLine Value="125"/>
         <CursorPos X="29" Y="169"/>
         <UsageCount Value="103"/>
         <Loaded Value="True"/>
@@ -183,8 +182,8 @@
         <Filename Value="listados.pas"/>
         <UnitName Value="LISTADOS"/>
         <EditorIndex Value="7"/>
-        <TopLine Value="161"/>
-        <CursorPos X="13" Y="149"/>
+        <TopLine Value="90"/>
+        <CursorPos X="3" Y="94"/>
         <UsageCount Value="103"/>
         <Loaded Value="True"/>
       </Unit>
@@ -200,8 +199,9 @@
       <Unit>
         <Filename Value="porcentajes.pas"/>
         <UnitName Value="Porcentajes"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="11"/>
-        <CursorPos X="69" Y="98"/>
+        <CursorPos X="121" Y="31"/>
         <UsageCount Value="103"/>
         <Loaded Value="True"/>
       </Unit>
@@ -209,7 +209,8 @@
         <Filename Value="validaciones.pas"/>
         <UnitName Value="VALIDACIONES"/>
         <EditorIndex Value="13"/>
-        <CursorPos X="17" Y="21"/>
+        <TopLine Value="39"/>
+        <CursorPos X="41" Y="70"/>
         <UsageCount Value="103"/>
         <Loaded Value="True"/>
       </Unit>
@@ -219,17 +220,22 @@
         <EditorIndex Value="-1"/>
         <WindowIndex Value="-1"/>
         <CursorPos X="40" Y="9"/>
-        <UsageCount Value="10"/>
+        <UsageCount Value="9"/>
       </Unit>
       <Unit>
         <Filename Value="types.pas"/>
         <UnitName Value="TYPES"/>
         <EditorIndex Value="12"/>
-        <UsageCount Value="10"/>
+        <UsageCount Value="14"/>
         <Loaded Value="True"/>
       </Unit>
     </Units>
-    <JumpHistory HistoryIndex="-1"/>
+    <JumpHistory>
+      <Position>
+        <Filename Value="abmc_general.pas"/>
+        <Caret Line="58" Column="42" TopLine="48"/>
+      </Position>
+    </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>
       <Modes ActiveMode="default"/>

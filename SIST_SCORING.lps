@@ -130,9 +130,10 @@
       <Unit>
         <Filename Value="abmc_general.pas"/>
         <UnitName Value="ABMC_GENERAL"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
-        <TopLine Value="138"/>
-        <CursorPos X="23" Y="150"/>
+        <TopLine Value="191"/>
+        <CursorPos X="34" Y="262"/>
         <UsageCount Value="103"/>
         <Loaded Value="True"/>
       </Unit>
@@ -157,7 +158,6 @@
         <Filename Value="archivos_conductores.pas"/>
         <UnitName Value="ARCHIVOS_CONDUCTORES"/>
         <EditorIndex Value="4"/>
-        <TopLine Value="11"/>
         <CursorPos X="11" Y="27"/>
         <UsageCount Value="103"/>
         <Loaded Value="True"/>
@@ -199,7 +199,6 @@
       <Unit>
         <Filename Value="porcentajes.pas"/>
         <UnitName Value="Porcentajes"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="11"/>
         <CursorPos X="121" Y="31"/>
         <UsageCount Value="103"/>
@@ -208,7 +207,7 @@
       <Unit>
         <Filename Value="validaciones.pas"/>
         <UnitName Value="VALIDACIONES"/>
-        <EditorIndex Value="13"/>
+        <EditorIndex Value="12"/>
         <TopLine Value="39"/>
         <CursorPos X="41" Y="70"/>
         <UsageCount Value="103"/>
@@ -220,20 +219,23 @@
         <EditorIndex Value="-1"/>
         <WindowIndex Value="-1"/>
         <CursorPos X="40" Y="9"/>
-        <UsageCount Value="9"/>
+        <UsageCount Value="8"/>
       </Unit>
       <Unit>
         <Filename Value="types.pas"/>
         <UnitName Value="TYPES"/>
-        <EditorIndex Value="12"/>
-        <UsageCount Value="14"/>
-        <Loaded Value="True"/>
+        <EditorIndex Value="-1"/>
+        <UsageCount Value="13"/>
       </Unit>
     </Units>
-    <JumpHistory>
+    <JumpHistory HistoryIndex="1">
       <Position>
         <Filename Value="abmc_general.pas"/>
         <Caret Line="58" Column="42" TopLine="48"/>
+      </Position>
+      <Position>
+        <Filename Value="abmc_general.pas"/>
+        <Caret Line="150" Column="23" TopLine="119"/>
       </Position>
     </JumpHistory>
     <RunParams>
