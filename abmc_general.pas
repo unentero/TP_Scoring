@@ -136,7 +136,7 @@ procedure cargar_conductores(var arch_cond: ARCHIVO_CONDUCTORES; var r: DATOS_CO
 var
  dia, mes, anio:word;
  ans:char;
- apynom,telefono:string;
+ apynom,telefono,email:string;
 begin
      titulo (' Alta de la Persona ');
      begin
@@ -147,11 +147,11 @@ begin
            verificar_todo_letras(apynom,66,9);
            r.apynom:=apynom;
            colocar('TELEFONO: ',15,40,11);
-           verificar_todo_numeros(telefono,51,11);
+           verificar_telefono(telefono,51,11);
            r.telefono:=telefono;
            colocar('E-MAIL: ',15,40,13);
-           gotoxy (49,13);
-           readln(r.MAIL);
+           verificar_email(email,49,13);
+           r.Mail :=email;
            r.puntos:=20;
            r.habilitado:=true;
            colocar('FECHA DE HABILITACIÓN: ',15,40,19);
@@ -269,7 +269,7 @@ begin
   colocar('Ingrese DNI de conductor',15,42,6);
   colocar('En caso de no tenerlo, escriba 0 para buscar por Nombre',15,42,7);
   colocar('- ',15,42,8);
-  verificar_todo_numeros(x,44,8);
+  verificar_dni(x,44,8);
       if x = '0' then
       begin
         colocar('Ingrese el Apellido y Nombre del Conductor',15,42,10);
@@ -291,7 +291,7 @@ begin
               begin
                colocar('Ingrese DNI de Conductor',15,42,18);
                colocar('- ',15,42,19);
-               verificar_todo_numeros(x,44,19);
+               verificar_dni(x,44,19);
                alta_conductores(arch_cond,arbol_dni,arbol_apynom,x);
               end;
            end;

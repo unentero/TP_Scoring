@@ -17,9 +17,11 @@ Type
       mes:string[4];
       anio:string[4];
     end;
-Procedure verificar_todo_numeros(clave:string;x,y:cardinal);
-Procedure verificar_todo_letras(clave:string;x,y:cardinal);
-Procedure verificar_fecha(clave:string;x,y:cardinal);
+Procedure verificar_telefono(var clave:string;x,y:cardinal);
+Procedure verificar_dni(var clave:string;x,y:cardinal);
+Procedure verificar_email(var clave:string;x,y:cardinal);
+Procedure verificar_todo_letras(var clave:string;x,y:cardinal);
+Procedure verificar_fecha(var clave:string;x,y:cardinal);
 procedure ConvertirFechaStringADate(var fechaRecord: FECHA; fechaString: string);
 implementation
 
@@ -58,7 +60,7 @@ begin
           end;
      end;
 end;
-Procedure verificar_todo_numeros(clave:string;x,y:cardinal);
+Procedure verificar_todo_numeros(var clave:string;x,y:cardinal);
 begin
 repeat
   gotoxy(x,y);
@@ -81,7 +83,7 @@ begin
           end;
      end;
 end;
-Procedure verificar_todo_letras(clave:string;x:cardinal;y:cardinal);
+Procedure verificar_todo_letras(var clave:string;x:cardinal;y:cardinal);
 begin
 repeat
   gotoxy(x,y);
@@ -219,11 +221,33 @@ begin
   // Si todas las validaciones pasan, la fecha es válida
   EsFechaValida := True;
 end;
-Procedure verificar_fecha(clave:string;x:cardinal;y:cardinal);
+Procedure verificar_fecha(var clave:string;x:cardinal;y:cardinal);
 begin
 repeat
   gotoxy(x,y);
   readln(clave)
 until EsFechaValida(clave);
+end;
+Procedure verificar_email(var clave:string; x,y:cardinal);
+begin
+repeat
+  gotoxy(x,y);
+  readln(clave)
+until (pos('@',clave)<>0) and (pos('@',clave)<pos('.',clave));
+end;
+Procedure verificar_telefono(var clave:string; x,y:cardinal);
+begin
+repeat
+  gotoxy(x,y);
+  readln(clave)
+until (todo_numeros(clave)) and (length(clave)<9) and (length(clave)>6);
+end;
+
+Procedure verificar_dni(var clave:string; x,y:cardinal);
+begin
+repeat
+  gotoxy(x,y);
+  readln(clave)
+until (todo_numeros(clave)) and (length(clave)=8); //no digo que el dni puede ser mayor a 8 unicamente porque para cuando los dni empiecen por 100 millones no creo que usen este sistema.
 end;
 end.

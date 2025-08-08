@@ -130,19 +130,19 @@
       <Unit>
         <Filename Value="abmc_general.pas"/>
         <UnitName Value="ABMC_GENERAL"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
-        <TopLine Value="130"/>
-        <CursorPos X="40" Y="147"/>
+        <TopLine Value="278"/>
+        <CursorPos X="29" Y="294"/>
         <UsageCount Value="103"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="amc_infracciones.pas"/>
         <UnitName Value="AMC_INFRACCIONES"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="2"/>
-        <TopLine Value="245"/>
-        <CursorPos X="32" Y="259"/>
+        <TopLine Value="238"/>
+        <CursorPos X="16" Y="255"/>
         <UsageCount Value="103"/>
         <Loaded Value="True"/>
       </Unit>
@@ -208,7 +208,8 @@
         <Filename Value="validaciones.pas"/>
         <UnitName Value="VALIDACIONES"/>
         <EditorIndex Value="12"/>
-        <CursorPos X="31" Y="22"/>
+        <TopLine Value="220"/>
+        <CursorPos X="56" Y="243"/>
         <UsageCount Value="103"/>
         <Loaded Value="True"/>
       </Unit>
@@ -227,7 +228,7 @@
         <UsageCount Value="13"/>
       </Unit>
     </Units>
-    <JumpHistory HistoryIndex="21">
+    <JumpHistory HistoryIndex="28">
       <Position>
         <Filename Value="abmc_general.pas"/>
         <Caret Line="58" Column="42" TopLine="48"/>
@@ -315,6 +316,34 @@
       <Position>
         <Filename Value="validaciones.pas"/>
         <Caret Line="22" Column="31"/>
+      </Position>
+      <Position>
+        <Filename Value="abmc_general.pas"/>
+        <Caret Line="147" Column="40" TopLine="130"/>
+      </Position>
+      <Position>
+        <Filename Value="validaciones.pas"/>
+        <Caret Line="233" Column="16" TopLine="204"/>
+      </Position>
+      <Position>
+        <Filename Value="abmc_general.pas"/>
+        <Caret Line="149" Column="89" TopLine="133"/>
+      </Position>
+      <Position>
+        <Filename Value="validaciones.pas"/>
+        <Caret Line="243" Column="56" TopLine="220"/>
+      </Position>
+      <Position>
+        <Filename Value="abmc_general.pas"/>
+        <Caret Line="154" Column="18" TopLine="138"/>
+      </Position>
+      <Position>
+        <Filename Value="abmc_general.pas"/>
+        <Caret Line="272" Column="25" TopLine="256"/>
+      </Position>
+      <Position>
+        <Filename Value="abmc_general.pas"/>
+        <Caret Line="294" Column="29" TopLine="278"/>
       </Position>
     </JumpHistory>
     <RunParams>

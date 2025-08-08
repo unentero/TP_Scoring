@@ -257,8 +257,7 @@ abrir_archivo_infracciones(arch_inf);
       begin
         colocar('Ingrese el Nombre Completo del conductor',15,42,10);
         colocar('- ',15,42,11);
-        gotoxy(44,11);
-        verificar_todo_letras(x);
+        verificar_todo_letras(x,44,11);
         busqueda_cond(arbol_apynom,pos,x);
       end
       else

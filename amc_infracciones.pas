@@ -252,7 +252,7 @@ abrir_archivo_infracciones(arch_inf);
   colocar('Ingrese DNI del conductor',15,42,6);
   colocar('En caso de no tenerlo, escriba 0 para buscar por nombre',15,42,7);
   colocar('- ',15,42,8);
-  verificar_todo_numeros(x,44,8);
+  verificar_dni(x,44,8);
       if x = '0' then
       begin
         colocar('Ingrese el Nombre Completo del conductor',15,42,10);
