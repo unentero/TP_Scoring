@@ -23,6 +23,14 @@
     </PublishOptions>
     <RunParams>
       <FormatVersion Value="2"/>
+      <Modes>
+        <Mode Name="default">
+          <local>
+            <LaunchingApplication Use="True" PathPlusParams="\sbin\konsole -T &apos;Lazarus Run Output&apos; -e $(LazarusDir)\tools\runwait.sh $(TargetCmdLine)"/>
+            <Display Use="True"/>
+          </local>
+        </Mode>
+      </Modes>
     </RunParams>
     <Units>
       <Unit>

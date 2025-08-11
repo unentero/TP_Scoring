@@ -265,6 +265,7 @@ pos:=0;
     if (es_fecha_igual_mayor(fecha_hoy,reg.fecha_deshab)) and not(reg.habilitado) then
     begin
     reg.HABILITADO:=true;
+    reg.puntos:=20;
     write(arch_cond,reg);
     end;
     inc(pos);

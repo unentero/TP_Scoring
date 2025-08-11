@@ -192,8 +192,8 @@
         <UnitName Value="MENU"/>
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="10"/>
-        <TopLine Value="254"/>
-        <CursorPos X="41" Y="285"/>
+        <TopLine Value="241"/>
+        <CursorPos X="14" Y="270"/>
         <UsageCount Value="103"/>
         <Loaded Value="True"/>
       </Unit>

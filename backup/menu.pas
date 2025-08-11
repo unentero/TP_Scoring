@@ -257,6 +257,7 @@ fecha_hoy.dia:=dia;
 fecha_hoy.mes:=mes;
 fecha_hoy.anio:=anio;
 reset(arch_cond);
+pos:=0;
   while not(eof(arch_cond)) do
   begin
     seek(arch_cond,pos);
@@ -266,6 +267,7 @@ reset(arch_cond);
     reg.HABILITADO:=true;
     write(arch_cond,reg);
     end;
+    inc(pos);
   end;
 close(arch_cond);
 end;
