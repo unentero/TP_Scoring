@@ -122,8 +122,8 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="Manejo_conductores"/>
         <EditorIndex Value="8"/>
-        <TopLine Value="9"/>
-        <CursorPos X="11" Y="11"/>
+        <TopLine Value="8"/>
+        <CursorPos X="11" Y="10"/>
         <UsageCount Value="201"/>
         <Loaded Value="True"/>
       </Unit>
@@ -131,8 +131,8 @@
         <Filename Value="abmc_general.pas"/>
         <UnitName Value="ABMC_GENERAL"/>
         <EditorIndex Value="1"/>
-        <TopLine Value="259"/>
-        <CursorPos X="29" Y="294"/>
+        <TopLine Value="196"/>
+        <CursorPos X="50" Y="212"/>
         <UsageCount Value="103"/>
         <Loaded Value="True"/>
       </Unit>
@@ -140,8 +140,8 @@
         <Filename Value="amc_infracciones.pas"/>
         <UnitName Value="AMC_INFRACCIONES"/>
         <EditorIndex Value="2"/>
-        <TopLine Value="112"/>
-        <CursorPos X="41" Y="113"/>
+        <TopLine Value="224"/>
+        <CursorPos X="90" Y="240"/>
         <UsageCount Value="103"/>
         <Loaded Value="True"/>
       </Unit>
@@ -157,8 +157,8 @@
         <Filename Value="archivos_conductores.pas"/>
         <UnitName Value="ARCHIVOS_CONDUCTORES"/>
         <EditorIndex Value="4"/>
-        <TopLine Value="4"/>
-        <CursorPos X="38" Y="17"/>
+        <TopLine Value="9"/>
+        <CursorPos X="5" Y="25"/>
         <UsageCount Value="103"/>
         <Loaded Value="True"/>
       </Unit>
@@ -192,8 +192,8 @@
         <UnitName Value="MENU"/>
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="10"/>
-        <TopLine Value="4"/>
-        <CursorPos X="50" Y="19"/>
+        <TopLine Value="254"/>
+        <CursorPos X="41" Y="285"/>
         <UsageCount Value="103"/>
         <Loaded Value="True"/>
       </Unit>
@@ -201,7 +201,7 @@
         <Filename Value="porcentajes.pas"/>
         <UnitName Value="Porcentajes"/>
         <EditorIndex Value="11"/>
-        <TopLine Value="59"/>
+        <TopLine Value="135"/>
         <CursorPos X="10" Y="13"/>
         <UsageCount Value="103"/>
         <Loaded Value="True"/>
@@ -210,8 +210,7 @@
         <Filename Value="validaciones.pas"/>
         <UnitName Value="VALIDACIONES"/>
         <EditorIndex Value="12"/>
-        <TopLine Value="9"/>
-        <CursorPos X="29" Y="25"/>
+        <CursorPos X="60" Y="24"/>
         <UsageCount Value="103"/>
         <Loaded Value="True"/>
       </Unit>
@@ -221,87 +220,23 @@
         <EditorIndex Value="-1"/>
         <WindowIndex Value="-1"/>
         <CursorPos X="40" Y="9"/>
-        <UsageCount Value="6"/>
+        <UsageCount Value="5"/>
       </Unit>
       <Unit>
         <Filename Value="types.pas"/>
         <UnitName Value="TYPES"/>
         <EditorIndex Value="-1"/>
-        <UsageCount Value="11"/>
+        <UsageCount Value="10"/>
       </Unit>
       <Unit>
         <Filename Value="..\..\..\..\..\usr\lib\fpc\src\packages\rtl-objpas\src\inc\dateutil.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="358"/>
         <CursorPos X="10" Y="375"/>
-        <UsageCount Value="10"/>
+        <UsageCount Value="9"/>
       </Unit>
     </Units>
     <JumpHistory HistoryIndex="29">
-      <Position>
-        <Filename Value="listados.pas"/>
-        <Caret Line="159" Column="21" TopLine="144"/>
-      </Position>
-      <Position>
-        <Filename Value="listados.pas"/>
-        <Caret Line="256" Column="20" TopLine="237"/>
-      </Position>
-      <Position>
-        <Filename Value="listados.pas"/>
-        <Caret Line="276" Column="28" TopLine="247"/>
-      </Position>
-      <Position>
-        <Filename Value="listados.pas"/>
-        <Caret Line="229" Column="56" TopLine="212"/>
-      </Position>
-      <Position>
-        <Filename Value="listados.pas"/>
-        <Caret Line="240" Column="48" TopLine="217"/>
-      </Position>
-      <Position>
-        <Filename Value="menu.pas"/>
-        <Caret Line="53" Column="10" TopLine="22"/>
-      </Position>
-      <Position>
-        <Filename Value="menu.pas"/>
-        <Caret Line="56" Column="28" TopLine="35"/>
-      </Position>
-      <Position>
-        <Filename Value="menu.pas"/>
-        <Caret Line="51" Column="34" TopLine="35"/>
-      </Position>
-      <Position>
-        <Filename Value="listados.pas"/>
-        <Caret Line="217" Column="27" TopLine="201"/>
-      </Position>
-      <Position>
-        <Filename Value="listados.pas"/>
-        <Caret Line="251" Column="24" TopLine="226"/>
-      </Position>
-      <Position>
-        <Filename Value="porcentajes.pas"/>
-        <Caret Line="124" Column="110" TopLine="15"/>
-      </Position>
-      <Position>
-        <Filename Value="menu.pas"/>
-        <Caret Line="88" Column="50" TopLine="65"/>
-      </Position>
-      <Position>
-        <Filename Value="menu.pas"/>
-        <Caret Line="111" Column="60" TopLine="85"/>
-      </Position>
-      <Position>
-        <Filename Value="porcentajes.pas"/>
-        <Caret Line="9" Column="53"/>
-      </Position>
-      <Position>
-        <Filename Value="porcentajes.pas"/>
-        <Caret Line="36" Column="52" TopLine="19"/>
-      </Position>
-      <Position>
-        <Filename Value="menu.pas"/>
-        <Caret Line="87" Column="92" TopLine="71"/>
-      </Position>
       <Position>
         <Filename Value="menu.pas"/>
         <Caret Line="5" Column="180"/>
@@ -357,6 +292,70 @@
       <Position>
         <Filename Value="amc_infracciones.pas"/>
         <Caret Line="29" Column="52" TopLine="4"/>
+      </Position>
+      <Position>
+        <Filename Value="validaciones.pas"/>
+        <Caret Line="269" Column="43" TopLine="240"/>
+      </Position>
+      <Position>
+        <Filename Value="amc_infracciones.pas"/>
+        <Caret Line="277" Column="5" TopLine="253"/>
+      </Position>
+      <Position>
+        <Filename Value="abmc_general.pas"/>
+        <Caret Line="294" Column="29" TopLine="290"/>
+      </Position>
+      <Position>
+        <Filename Value="abmc_general.pas"/>
+        <Caret Line="257" Column="60" TopLine="219"/>
+      </Position>
+      <Position>
+        <Filename Value="abmc_general.pas"/>
+        <Caret Line="213" Column="42" TopLine="159"/>
+      </Position>
+      <Position>
+        <Filename Value="abmc_general.pas"/>
+        <Caret Line="135" Column="11" TopLine="168"/>
+      </Position>
+      <Position>
+        <Filename Value="amc_infracciones.pas"/>
+        <Caret Line="240" Column="93" TopLine="220"/>
+      </Position>
+      <Position>
+        <Filename Value="menu.pas"/>
+        <Caret Line="246" Column="71" TopLine="244"/>
+      </Position>
+      <Position>
+        <Filename Value="validaciones.pas"/>
+        <Caret Line="265" Column="52" TopLine="238"/>
+      </Position>
+      <Position>
+        <Filename Value="validaciones.pas"/>
+        <Caret Line="267" Column="178" TopLine="238"/>
+      </Position>
+      <Position>
+        <Filename Value="validaciones.pas"/>
+        <Caret Line="268" Column="27" TopLine="238"/>
+      </Position>
+      <Position>
+        <Filename Value="abmc_general.pas"/>
+        <Caret Line="212" Column="50" TopLine="196"/>
+      </Position>
+      <Position>
+        <Filename Value="amc_infracciones.pas"/>
+        <Caret Line="240" Column="90" TopLine="224"/>
+      </Position>
+      <Position>
+        <Filename Value="menu.pas"/>
+        <Caret Line="248" Column="4" TopLine="231"/>
+      </Position>
+      <Position>
+        <Filename Value="menu.pas"/>
+        <Caret Line="263" Column="23" TopLine="246"/>
+      </Position>
+      <Position>
+        <Filename Value="validaciones.pas"/>
+        <Caret Line="24" Column="60"/>
       </Position>
     </JumpHistory>
     <RunParams>

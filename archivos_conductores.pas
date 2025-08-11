@@ -20,8 +20,9 @@ const
       habilitado: boolean;
       estado:boolean;
       fecha_hab:FECHA;
+      fecha_deshab:FECHA;
       reinc:0..n;
-		end;
+    end;
    ARCHIVO_CONDUCTORES = file of datos_conductores;
 procedure crear_archivo_conductores(var arch_cond: ARCHIVO_CONDUCTORES);
 procedure abrir_archivo_conductores(var arch_cond: ARCHIVO_CONDUCTORES);

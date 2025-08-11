@@ -188,7 +188,6 @@ begin
            r.fecha_infraccion.dia := dia;
            r.fecha_infraccion.mes := mes;
            r.fecha_infraccion.anio := anio;
-           //readkey;
            Tabla_infracciones(infraccion);
            r.infrac:=infraccion;
        end;
@@ -235,12 +234,28 @@ begin
        x.puntos:= x.puntos-Descuento;
     seek(arch_cond, pos);
     write(arch_cond, x);
-    colocar('Deduccion de puntos realizada exitosamente',lightgreen,40,26);
+    if (x.puntos=0) then
+       begin
+            x.reinc:=x.reinc + 1;
+            colocar('De de baja manualmente a este conductor, ya que tiene Scoring 0',red,40,26);
+       end
+       else colocar('Deduccion de puntos realizada exitosamente',lightgreen,40,26);
     end
     else
     colocar('No se restó puntos',red,40,26);
     pulse_para_continuar;
 end;
+{Procedure baja_licencia(var arch_cond:archivo_conductores);
+pos:integer;
+reg:datos_conductores;
+begin
+for pos:=0 to filesize(arch_cond) do
+begin
+seek(arch_cond,pos);
+read(reg,arch_cond);
+
+end;
+end;}
 
 Procedure AMBC_INFRACCIONES (var arch_cond: ARCHIVO_CONDUCTORES;var arch_inf:archivo_infracciones; var arbol_dni:PUNTERO;var arbol_apynom:PUNTERO;var arch_infr: ARCHIVO_INFRACCIONES);
 var
@@ -273,6 +288,7 @@ abrir_archivo_infracciones(arch_inf);
     b:= reg.habilitado;
     alta_infracciones(arch_inf,x,infraccion);
     modificacion_scoring(arch_cond,pos,infraccion);
+    //bajas_licencias;
     end
     else
     begin

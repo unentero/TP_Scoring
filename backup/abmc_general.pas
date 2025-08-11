@@ -199,6 +199,7 @@ procedure dar_baja(var arch_cond:ARCHIVO_CONDUCTORES;pos: cardinal );
 var
   x:DATOS_CONDUCTORES;
   rta:char;
+  dia,mes,anio:word;
 begin
     gotoxy(30,24);
     write('¿Está seguro que desea dar de baja a esta persona? S/N: ');
@@ -208,11 +209,15 @@ begin
          abrir_archivo_conductores(arch_cond);
          leer_registros_conductores(arch_cond,pos,x);
          x.habilitado:=false;
+         FormatDateTime('(dd/mm/yyyy)'+'|',Date)
+         DecodeDate(Date,anio,mes,dia);
+         x.fecha_deshab.dia:=dia;
+         x.fecha_deshab.mes:= mes + (x.reinc mod 12);
+         x.fecha_deshab.anio:=anio + (x.reinc div 12);
          seek(arch_cond, pos);
          write(arch_cond, x);
          close(arch_cond);
          colocar('Baja realizada exitosamente',lightgreen,30,25);
-          colocar('Recuerde dar de baja sus infracciones',lightgreen,30,26);
     end
     else
     begin
@@ -255,7 +260,6 @@ begin
          else
          begin
         colocar ('El conductor fue dado de baja',15,40,15);
-        colocar ('Vaya a Modificación si quiere cambiarlo',15,40,16);
          end;
 
 end;
@@ -291,7 +295,7 @@ begin
               begin
                colocar('Ingrese DNI de Conductor',15,42,18);
                colocar('- ',15,42,19);
-               verificar_todo_numeros(x,44,19);
+               verificar_dni(x,44,19);
                alta_conductores(arch_cond,arbol_dni,arbol_apynom,x);
               end;
            end;

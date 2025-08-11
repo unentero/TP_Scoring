@@ -93,7 +93,7 @@ begin
       colocar('37     Conducir bajo la influencia de alcohol                                                              ', 15, 10, 16);
       colocar('38     Negativa a someterse a control de alcoholemia, estupefacientes                                      ', 15, 10, 17);
       colocar('39     Taxis, transporte de escolares, remises, vehiculos de fantasia sin autorizacion                     ', 15, 10, 18);
-      colocar('40     Conducir con mayor cantidad de alcohol en sangre del permitido o bajo los efectos de estupefacientes', 15, 10, 19);
+      colocar('40     Conducir bajo los efectos de estupefacientes', 15, 10, 19);
       colocar('41     Incumplir obligaciones legales                                                                      ', 15, 10, 20);
       colocar('42     Participar u organizar picadas                                                                      ', 15, 10, 21);
       colocar('                                                                                                          ', 15, 10, 22);
@@ -110,7 +110,7 @@ begin
         7:  colocar_res('37     Conducir bajo la influencia de alcohol', 1, 10, 16);
         8:  colocar_res('38     Negativa a someterse a control de alcoholemia, estupefacientes', 1, 10, 17);
         9:  colocar_res('39     Taxis, transporte de escolares, remises, vehiculos de fantasia sin autorizacion', 1, 10, 18);
-        10: colocar_res('40     Conducir con mayor cantidad de alcohol en sangre del permitido o bajo los efectos de estupefacientes', 1, 10, 19);
+        10: colocar_res('40     Conducir bajo los efectos de estupefacientes', 1, 10, 19);
         11: colocar_res('41     Incumplir obligaciones legales', 1, 10, 20);
         12: colocar_res('42     Participar u organizar picadas', 1, 10, 21);
       end;
@@ -188,7 +188,6 @@ begin
            r.fecha_infraccion.dia := dia;
            r.fecha_infraccion.mes := mes;
            r.fecha_infraccion.anio := anio;
-           //readkey;
            Tabla_infracciones(infraccion);
            r.infrac:=infraccion;
        end;
@@ -235,12 +234,28 @@ begin
        x.puntos:= x.puntos-Descuento;
     seek(arch_cond, pos);
     write(arch_cond, x);
-    colocar('Deduccion de puntos realizada exitosamente',lightgreen,40,26);
+    if (x.puntos=0) then
+       begin
+            x.reinc:=x.reinc + 1;
+            colocar('De de baja manualmente a este conductor, ya que tiene Scoring 0',orange,40,26);
+       end
+       else colocar('Deduccion de puntos realizada exitosamente',lightgreen,40,26);
     end
     else
     colocar('No se restó puntos',red,40,26);
     pulse_para_continuar;
 end;
+{Procedure baja_licencia(var arch_cond:archivo_conductores);
+pos:integer;
+reg:datos_conductores;
+begin
+for pos:=0 to filesize(arch_cond) do
+begin
+seek(arch_cond,pos);
+read(reg,arch_cond);
+
+end;
+end;}
 
 Procedure AMBC_INFRACCIONES (var arch_cond: ARCHIVO_CONDUCTORES;var arch_inf:archivo_infracciones; var arbol_dni:PUNTERO;var arbol_apynom:PUNTERO;var arch_infr: ARCHIVO_INFRACCIONES);
 var
@@ -273,6 +288,7 @@ abrir_archivo_infracciones(arch_inf);
     b:= reg.habilitado;
     alta_infracciones(arch_inf,x,infraccion);
     modificacion_scoring(arch_cond,pos,infraccion);
+    //bajas_licencias;
     end
     else
     begin

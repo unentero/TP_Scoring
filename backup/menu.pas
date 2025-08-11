@@ -16,13 +16,13 @@ begin
   repeat
   clrscr;
   colocar ('MENÚ LISTADOS',15,45,6);
-  colocar ('1. Listado ordenado alfabeticamente de Conductores',15,37,8);
-  colocar ('2. Listado de todas las infracciones entre dos fechas',15,37,10);
-  colocar ('3. Listado de todas las infracciones de un conductor',15,37,12);
-  colocar ('4. Listado de los infractores con scoring 0',15,37,14);
-  colocar ('0. Salir',15,37,16);
-  colocar ('> ',15,37,18);
-  gotoxy (39,18);
+  colocar ('1. Listado ordenado alfabeticamente de Conductores',15,10,8);
+  colocar ('2. Listado de todas las infracciones entre dos fechas',15,10,10);
+  colocar ('3. Listado de todas las infracciones de un conductor',15,10,12);
+  colocar ('4. Listado de los infractores con scoring 0',15,10,14);
+  colocar ('0. Salir',15,10,16);
+  colocar ('> ',15,10,18);
+  gotoxy (12,18);
   readln(op);
      case op of
      '1':begin
@@ -54,7 +54,7 @@ begin
      end;
        if (op<>'0') then
        begin
-       colocar('Opción inválida. Vuelva a intentarlo',12,40,22);
+       colocar('Opción inválida. Vuelva a intentarlo',12,10,22);
        pulse_para_continuar;
        end;
      until (op='0') ;
@@ -243,7 +243,32 @@ begin
   end;
   close(arch_cond);
 end;
-
+//habilita a los conductores que ya pasó su plazo de deshabilitación
+Procedure habilitador_automatico(var arch_cond:archivo_conductores);
+var
+fecha_hoy:fecha;
+reg:datos_conductores;
+anio,mes,dia:word;
+pos:integer;
+begin
+FormatDateTime('(dd/mm/yyyy)'+'|',Date);
+DecodeDate(Date,anio,mes,dia);
+fecha_hoy.dia:=dia;
+fecha_hoy.mes:=mes;
+fecha_hoy.anio:=anio;
+reset(arch_cond);
+  while not(eof(arch_cond)) do
+  begin
+    seek(arch_cond,pos);
+    read(arch_cond,reg);
+    if (es_fecha_igual_mayor(fecha_hoy,reg.fecha_deshab)) and not(reg.habilitado) then
+    begin
+    reg.HABILITADO:=true;
+    write(arch_cond,reg);
+    end;
+  end;
+close(arch_cond);
+end;
 // Programa
 procedure iniciar;
 var
@@ -257,6 +282,7 @@ inicio;
  begin
       ARBOL_COND (arbol_apynom,arbol_dni,arch_cond);
       menu_principal(arch_cond, arch_inf, arbol_apynom, arbol_dni);
+      habilitador_automatico(arch_cond);
  end;
 end;
 end.

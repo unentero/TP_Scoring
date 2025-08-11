@@ -1,7 +1,4 @@
 unit VALIDACIONES;
-
-{$mode objfpc}{$H+}
-
 interface
 
 uses
@@ -249,7 +246,7 @@ begin
 repeat
   gotoxy(x,y);
   readln(clave)
-until (todo_numeros(clave)) and (length(clave)=8); //no digo que el dni puede ser mayor a 8 unicamente porque para cuando los dni empiecen por 100 millones no creo que usen este sistema.
+until ((todo_numeros(clave)) and (length(clave)=8) or (clave='0')); //no digo que el dni puede ser mayor a 8 unicamente porque para cuando los dni empiecen por 100 millones no creo que usen este sistema.
 end;
 function ver_fecha_entrefechas(fecha_input,fecha_inicio,fecha_fin:FECHA):boolean;
 begin
@@ -265,4 +262,10 @@ begin
   else ver_fecha_entrefechas:=false;
 end;
 
+function es_fecha_igual_mayor(fecha1,fecha2:fecha):boolean;
+begin
+if (((fecha1.anio>fecha2.anio) or (fecha1.anio=fecha2.anio)) and ((fecha1.mes>fecha2.mes) or (fecha1.mes=fecha2.mes)) and ((fecha1.dia>fecha2.dia) or (fecha1.anio=fecha2.anio)))then
+es_fecha_igual_mayor:=true
+else es_fecha_igual_mayor:=false;
+end;
 end.
