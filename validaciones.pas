@@ -23,6 +23,7 @@ Procedure verificar_email(var clave:string;x,y:cardinal);
 Procedure verificar_todo_letras(var clave:string;x,y:cardinal);
 Procedure verificar_fecha(var clave:string;x,y:cardinal);
 procedure ConvertirFechaStringADate(var fechaRecord: FECHA; fechaString: string);
+function ver_fecha_entrefechas(fecha_input,fecha_inicio,fecha_fin:FECHA):boolean;
 implementation
 
 function numero(car: string): boolean;
@@ -248,6 +249,20 @@ begin
 repeat
   gotoxy(x,y);
   readln(clave)
-until (todo_numeros(clave)) and (length(clave)=8); //no digo que el dni puede ser mayor a 8 unicamente porque para cuando los dni empiecen por 100 millones no creo que usen este sistema.
+until ((todo_numeros(clave)) and (length(clave)=8) or (clave='0')); //no digo que el dni puede ser mayor a 8 unicamente porque para cuando los dni empiecen por 100 millones no creo que usen este sistema.
 end;
+function ver_fecha_entrefechas(fecha_input,fecha_inicio,fecha_fin:FECHA):boolean;
+begin
+  if (fecha_input.anio > fecha_inicio.anio) or
+         ((fecha_input.anio = fecha_inicio.anio) and (fecha_input.mes > fecha_inicio.mes)) or
+         ((fecha_input.anio = fecha_inicio.anio) and (fecha_input.mes = fecha_inicio.mes) and (fecha_input.dia >= fecha_inicio.dia)) then
+  begin
+    if (fecha_input.anio < fecha_fin.anio) or
+           ((fecha_input.anio = fecha_fin.anio) and (fecha_input.mes < fecha_fin.mes)) or
+           ((fecha_input.anio = fecha_fin.anio) and (fecha_input.mes = fecha_fin.mes) and (fecha_input.dia <= fecha_fin.dia)) then ver_fecha_entrefechas:=true;
+
+  end
+  else ver_fecha_entrefechas:=false;
+end;
+
 end.

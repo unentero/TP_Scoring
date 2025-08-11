@@ -81,105 +81,255 @@ begin
     readkey;
 end;
 
+  procedure pagina_inf(min, max: cardinal; datos: datos_infracciones; var arch_inf: ARCHIVO_INFRACCIONES; var contador: cardinal; var y: cardinal; n: cardinal;var pos:integer; condicion:boolean);
+  var
+  fecha: string;
+  begin
+    seek(arch_inf, pos);
+    read(arch_inf, datos);
+    if condicion then
+    begin
+      inc(contador);
+      if (contador >= min) and (contador <= max) then
+      begin
+        fecha:=IntToStr(datos.fecha_infraccion.dia)+'-'+IntToStr(datos.fecha_infraccion.mes)+'-'+IntToStr(datos.fecha_infraccion.anio);
+        gotoxy(n+1, y);
+        write(fecha);
+        gotoxy(n + 17, y);
+        write(datos.dni);
+        gotoxy(n + 33, y);
+        case datos.infrac of
+          1: write('No respetar indicaciones Autoridad dirige Tránsito');
+          2: write('Conducir con Licencia Vencida o Caduca');
+          3: write('Licencia o documentación habilitante vencida');
+          4: write('Conducir sin anteojos o lentes contacto según Licencia');
+          5: write('Conducir con licencia conductor No Correspondiente');
+          6: write('Permitir Conducir con licencia conductor No Correspondiente');
+          7: write('Permitir Conducir c/licencia conductor No Correspondiente');
+          8: write('Sistemas o dispositivos de retención infantil');
+          9: write('No uso cinturón de seguridad');
+          10: write('Permitir Viajar personas impedidas en asiento delantero');
+          11: write('Girar a izquierda o derecha en lugar prohibido');
+          12: write('Marcha atrás en forma indebida');
+          13: write('Obstruccion de via');
+          14: write('Obstruir vía Transversal,Ciclovía,Vereda,Estac. reservado');
+          15: write('Obstruir lugar reservado Vehíc. Persona discapac. RAMPA discapac.');
+          16: write('No ceder Paso a Polic,Bombe,Ambula,Serv.Pub.o Urgen.');
+          17: write('No respetar Senda Peatonal,Paso Peatonal');
+          18: write('Conducir utilizando Celular,Auriculares,Reproductor de video');
+          19: write('Conductor redactando,enviando mensaje de texto');
+          20: write('Circulación en sentido contrario');
+          21: write('Invasión parcial de vías');
+          22: write('No respetar paso o cartel PARE en bocacalle');
+          23: write('Interrumpir Filas Escolares');
+          24: write('Prohibido circular según DÍA,HORA,CARAC.VEHIC y.u OCUPANTES');
+          25: write('Infracción régimen motovehículos');
+          26: write('Violar Luz Roja');
+          27: write('Violacion de semáforos (taxis, escolares , pasajeros, remises. Prestando servicio)');
+          28: write('Exceso de velocidad de 10% a 30% ms de la velocidad permitida');
+          29: write('No Cumplir Normas sin requisitos Vehículos de Transporte con habilitación');
+          30: write('Requisitos de los vehículos de transporte de carga sin habilitación');
+          31: write('Violación de barreras ferroviarias');
+          32: write('Violación de límites de velocidad mayor al 30% permitido');
+          33: write('Requisitos de los vehículos de transporte de carga');
+          34: write('Placas de dominio');
+          35: write('Circular con antiradar o antifoto');
+          36: write('Conducción peligrosa');
+          37: write('Conducir bajo la influencia de alcohol');
+          38: write('Negativa a someterse a control de alcoholemia, estupefacientes');
+          39: write('Taxis, transporte de escolares, remises, vehículos de fantasía sin autorización');
+          40: write('Conducir bajo los efectos de estupefacientes');
+          41: write('Incumplir obligaciones legales');
+          42: write('Participar u organizar picadas');
+        end;
+        y := y + 2;
+      end;
+    end;
+    //inc(pos);
+  end;
 
-  procedure ListarInfraccionesEntreFechas(var arch_inf: ARCHIVO_INFRACCIONES;var fechaInicio, fechaFin: FECHA);
+procedure ListarInfraccionesEntreFechas(var arch_inf: ARCHIVO_INFRACCIONES;var fechaInicio, fechaFin: FECHA);
 var
-  registro: datos_infracciones;
+  datos: datos_infracciones;
+  pos: integer;
+  numpag, cantpag: integer;
+  tecla: char;
+  contador, y, totalRegistros, registrosFiltrados: cardinal;
+  minPage, maxPage: cardinal;
+  condicion:boolean;
 begin
   reset(arch_inf);
+  totalRegistros := filesize(arch_inf);
 
-  while not eof(arch_inf) do
+  // Primero contar cuantos registros cumplen con el filtro de fecha
+  registrosFiltrados := 0;
+  for pos := 0 to totalRegistros - 1 do
   begin
-    read(arch_inf, registro);
+    seek(arch_inf, pos);
+    read(arch_inf, datos);
+    if ver_fecha_entrefechas(datos.fecha_infraccion, fechaInicio, fechaFin) then
+    inc(registrosFiltrados);
+  end;
 
-    if (registro.fecha_infraccion.anio > fechaInicio.anio) or
-       ((registro.fecha_infraccion.anio = fechaInicio.anio) and (registro.fecha_infraccion.mes > fechaInicio.mes)) or
-       ((registro.fecha_infraccion.anio = fechaInicio.anio) and (registro.fecha_infraccion.mes = fechaInicio.mes) and (registro.fecha_infraccion.dia >= fechaInicio.dia)) then
-    begin
-      if (registro.fecha_infraccion.anio < fechaFin.anio) or
-         ((registro.fecha_infraccion.anio = fechaFin.anio) and (registro.fecha_infraccion.mes < fechaFin.mes)) or
-         ((registro.fecha_infraccion.anio = fechaFin.anio) and (registro.fecha_infraccion.mes = fechaFin.mes) and (registro.fecha_infraccion.dia <= fechaFin.dia)) then
-      begin
-        writeln('DNI: ', registro.DNI);
-        writeln('Fecha Infraccion: ', registro.fecha_infraccion.dia, '/', registro.fecha_infraccion.mes, '/', registro.fecha_infraccion.anio);
-        writeln('Infraccion: ', registro.infrac);
-        case registro.infrac of
-        '1': writeln('Descripcion: No respetar indicaciones Autoridad dirige Tránsito');
-        '2': writeln('Descripcion: Conducir con Licencia Vencida o Caduca');
-        '3': writeln('Descripcion: Licencia o documentación habilitante vencida (transporte público)');
-        '4': writeln('Descripcion: Conducir sin anteojos o lentes contacto según Licencia');
-        '5': writeln('Descripcion: Conducir con licencia conductor No Correspondiente');
-        '6': writeln('Descripcion: Permitir Conducir con licencia conductor No Correspondiente(titular o transporte)');
-        '7': writeln('Descripcion: Permitir Conducir c/licencia conductor No Correspondiente(titular o transporte)');
-        '8': writeln('Descripcion: Sistemas o dispositivos de retención infantil');
-        '9': writeln('Descripcion: No uso cinturón de seguridad');
-        '10': writeln('Descripcion: Permitir Viajar personas impedidas en asiento delantero');
-        '11': writeln('Descripcion: Girar a izquierda o derecha en lugar prohibido');
-        '12': writeln('Descripcion: Marcha atrás en forma indebida');
-        '13': writeln('Descripcion: Obstruccion de via (en carriles exclusivos y metrobus y premetro)');
-        '14': writeln('Descripcion: Obstruir vía Transversal,Ciclovía,Vereda,Estac. reservado');
-        '15': writeln('Descripcion: Obstruir lugar reservado Vehíc. Persona discapac. RAMPA discapac.');
-        '16': writeln('Descripcion: No ceder Paso a Polic,Bombe,Ambula,Serv.Pub.o Urgen.');
-        '17': writeln('Descripcion: No respetar Senda Peatonal,Paso Peatonal');
-        '18': writeln('Descripcion: Conducir utilizando Celular,Auriculares,Reproductor de video');
-        '19': writeln('Descripcion: Conductor redactando,enviando mensaje de texto');
-        '20': writeln('Descripcion: Circulación en sentido contrario');
-        '21': writeln('Descripcion: Invasión parcial de vías');
-        '22': writeln('Descripcion: No respetar paso o cartel PARE en bocacalle');
-        '23': writeln('Descripcion: Interrumpir Filas Escolares');
-        '24': writeln('Descripcion: Prohibido circular según DÍA,HORA,CARAC.VEHIC y.u OCUPANTES (MOTO)');
-        '25': writeln('Descripcion: Infracción régimen motovehículos');
-        '26': writeln('Descripcion: Violar Luz Roja');
-        '27': writeln('Descripcion: Violacion de semáforos (taxis, escolares , pasajeros, remises. Prestando servicio)');
-        '28': writeln('Descripcion: Exceso de velocidad de 10% a 30% ms de la velocidad permitida');
-        '29': writeln('Descripcion: No Cumplir Normas sin requisitos Vehículos de Transporte con habilitación');
-        '30': writeln('Descripcion: Requisitos de los vehículos de transporte de carga sin habilitación');
-        '31': writeln('Descripcion: Violación de barreras ferroviarias');
-        '32': writeln('Descripcion: Violación de límites de velocidad mayor al 30% permitido');
-        '33': writeln('Descripcion: Requisitos de los vehículos de transporte de carga');
-        '34': writeln('Descripcion: Placas de dominio');
-        '35': writeln('Descripcion: Circular con antiradar o antifoto');
-        '36': writeln('Descripcion: Conducción peligrosa');
-        '37': writeln('Descripcion: Conducir bajo la influencia de alcohol');
-        '38': writeln('Descripcion: Negativa a someterse a control de alcoholemia, estupefacientes');
-        '39': writeln('Descripcion: Taxis, transporte de escolares, remises, vehículos de fantasía sin autorización');
-        '40': writeln('Descripcion: Conducir con mayor cantidad de alcohol en sangre del permitido o bajo los efectos de estupefacientes');
-        '41': writeln('Descripcion: Incumplir obligaciones legales');
-        '42': writeln('Descripcion: Participar u organizar picadas');
-        end;
-        writeln;
+  cantpag := ceil(registrosFiltrados / 10);
+  numpag := 1;
+  tecla := #0;
+  while tecla <> #27 do
+  begin
+    clrscr;
+    interfaz_inf;
+    contador := 0;
+    y := 10;
+    pos := 0;
+    minPage := (numpag - 1) * 10 + 1;
+    maxPage := numpag * 10;
+    reset(arch_inf);
+          while (pos < totalRegistros) and (contador < maxPage) do
+          begin
+            condicion:=ver_fecha_entrefechas(datos.fecha_infraccion, fechaInicio, fechaFin);
+            pagina_inf(minPage, maxPage, datos, arch_inf, contador, y, 10, pos,condicion);
+            inc(pos);
+          end;
+          tecla := readkey;
+          case tecla of
+              #77: if (numpag < cantpag) then Inc(numpag); // Derecha
+              #75: if (numpag > 1) then Dec(numpag);       // Izquierda
+          end;
       end;
+      close(arch_inf);
+      readkey;
+    end;
+
+procedure Infracciones_cond(var arch_inf: ARCHIVO_INFRACCIONES; var dni_buscado: string);
+var
+  datos: datos_infracciones;
+  pos: integer;
+  numpag, cantpag: integer;
+  tecla: char;
+  contador, y, totalRegistros, registrosFiltrados: cardinal;
+  minPage, maxPage: cardinal;
+  condicion: boolean;
+begin
+  reset(arch_inf);
+  totalRegistros := filesize(arch_inf);
+
+  // Primero contar cuantos registros cumplen con la condicion
+  registrosFiltrados := 0;
+  for pos := 0 to (totalRegistros-1) do
+  begin
+    seek(arch_inf, pos);
+    read(arch_inf, datos);
+    if datos.DNI = dni_buscado then
+      inc(registrosFiltrados);
+  end;
+
+  cantpag := ceil(registrosFiltrados / 10);
+  numpag := 1;
+  tecla := #0;
+
+  while tecla <> #27 do
+  begin
+    clrscr;
+    interfaz_inf;
+    contador := 0;
+    y := 10;
+    minPage := (numpag - 1) * 10 + 1;
+    maxPage := numpag * 10;
+
+    //reset(arch_inf);
+    pos := 0;
+    while (pos < totalRegistros) and (contador < maxPage) do
+    begin
+      seek(arch_inf, pos);
+      read(arch_inf, datos);
+      condicion := (datos.DNI = dni_buscado);
+
+      if condicion then
+      begin
+        inc(contador);
+        if (contador >= minPage) and (contador <= maxPage) then
+        begin
+          pagina_inf(minPage, maxPage, datos, arch_inf, contador, y, 10, pos,condicion);
+          inc(y);
+        end;
+      end;
+      inc(pos);
+    end;
+
+    tecla := readkey;
+    case tecla of
+      #77: if (numpag < cantpag) then Inc(numpag); // Derecha
+      #75: if (numpag > 1) then Dec(numpag);       // Izquierda
     end;
   end;
 
   close(arch_inf);
+  readkey;
 end;
-  procedure Infracciones_cond(var arch_inf:ARCHIVO_INFRACCIONES; var dni_buscado:string);
-  var
-  registro: datos_infracciones;
-  begin
-  while not(eof(arch_inf)) do
-        begin
-        read(arch_inf,registro);
-        if registro.dni=dni_buscado then
-        begin
-          writeln;
-          writeln('Fecha Infracción: ', registro.fecha_infraccion.dia, '/', registro.fecha_infraccion.mes, '/', registro.fecha_infraccion.anio);
-          writeln('Infracción: ', registro.infrac);
-          writeln;
-        end;
-  end;
-  end;
+
   procedure scoring_cero(var arch_cond:ARCHIVO_CONDUCTORES);
-  var
-  r: datos_conductores;
-  begin
-  while not(eof(arch_cond)) do
-  begin
-       read(arch_cond,r);
-       if r.puntos=0 then
-          writeln(r.apynom);
-  end;
-end;
+    var
+      r: datos_conductores;
+      registrosFiltrados,pos,contador,y: integer;
+      tecla: char;
+
+    begin
+      reset(arch_cond);
+      contador := 0;
+      y := 3; // Posicion vertical inicial
+      registrosFiltrados := 0;
+      while ((pos > (-1)) and (pos<filesize(arch_cond))) and (registrosFiltrados<>0) do
+      begin
+        seek(arch_cond, pos);
+        read(arch_cond, r);
+        if r.puntos = 0 then
+        inc(registrosFiltrados);
+      end;
+      if registrosFiltrados<>0 then
+      begin
+        reset(arch_cond);
+        clrscr;
+        writeln('LISTADO DE CONDUCTORES CON SCORING 0');
+        writeln('-----------------------------------');
+        writeln('APELLIDO Y NOMBRE':30, 'DNI':15);
+        writeln('-----------------------------------');
+
+        // Mostrar todos los registros de una vez
+        while not(eof(arch_cond)) and (tecla<>#27) do
+        begin
+          read(arch_cond, r);
+          if r.puntos = 0 then
+          begin
+            gotoxy(5, y);
+            write(r.apynom);
+            gotoxy(35, y);
+            write(r.dni);
+            y := y + 1;
+            contador := contador + 1;
+
+            // Pausa cada 20 registros
+            if contador mod 20 = 0 then
+            begin
+              gotoxy(5, y + 2);
+              write('Presione cualquier tecla para continuar (ESC para salir)...');
+              tecla := readkey;
+              clrscr;
+              writeln('LISTADO DE CONDUCTORES CON SCORING 0');
+              writeln('-----------------------------------');
+              writeln('APELLIDO Y NOMBRE':30, 'DNI':15);
+              writeln('-----------------------------------');
+              y := 3; // Reiniciar posicion vertical
+            end;
+          end;
+        end;
+      end
+      else
+      begin
+        clrscr;
+        colocar('No hay conductores con Scoring 0', red,10,10);
+        pulse_para_continuar;
+      end;
+      close(arch_cond);
+    end;
 
 end.

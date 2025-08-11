@@ -31,28 +31,29 @@ begin
      '2':begin
        clrscr;
        colocar('Ingrese fecha de inicio (DD/MM/AAAA):',15,10,10);
-       gotoxy(47,10);
-       verificar_fecha(fecha1);
+       verificar_fecha(fecha1,47,10);
        ConvertirFechaStringADate(fechainicio,fecha1);
        colocar('Ingrese fecha de final (DD/MM/AAAA):',15,10,12);
-       gotoxy(46,12);
-       verificar_fecha(fecha2);
+       verificar_fecha(fecha2,46,12);
        ConvertirFechaStringADate(fechafin,fecha2);
        ListarInfraccionesEntreFechas(arch_inf,fechaInicio,fechaFin);
        end;
      '3':begin
+       clrscr;
+       colocar('Ingrese DNI del conductor:',15,10,10);
+       verificar_dni(dni_buscado,37,10);
        Infracciones_cond(arch_inf,dni_buscado);
        end;
      '4':begin
        scoring_cero(arch_cond);
         end;
      end;
-       if op<>'0' then
+       if (op<>'0') or (op<>#27) then
        begin
        colocar('Opción inválida. Vuelva a intentarlo',12,40,22);
        pulse_para_continuar;
        end;
-     until op='0' ;
+     until (op='0') or (op=#27) ;
 end;
 //menu de estadisticas
 procedure menu_estadisticas(var arch_cond: ARCHIVO_CONDUCTORES; var arch_inf: ARCHIVO_INFRACCIONES);

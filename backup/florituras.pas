@@ -55,7 +55,7 @@ end;
     textcolor(15);
     for a:= 1 to z do
     begin
-         gotoxy(x,y);write('║║') ;
+         gotoxy(x,y);write('║') ;
          y:=y+1;
         end;
     end;
@@ -101,15 +101,15 @@ end;
     procedure interfaz_inf;
 begin
     // Encabezado de la tabla
-    Colocar('+---------------┬----------------------------------------------+', lightblue, 10, 6);
-    Colocar('| N° Infracción | Descripción                                  |', lightblue, 10, 7);
-    Colocar('+---------------+----------------------------------------------+', lightblue, 10, 8);
+    Colocar('+---------------┬--------------┬----------------------------------------------------------------+', lightblue, 10, 6);
+    Colocar('| Fecha Infrac. | DNI          | Descripcion                                                    |', lightblue, 10, 7);
+    Colocar('+---------------+--------------+----------------------------------------------------------------+', lightblue, 10, 8);
 
     // Línea de separación
-    Colocar('+---------------+----------------------------------------------+', lightblue, 10, 50);
+    Colocar('+---------------+----------------------------------------------+', lightblue, 10, 30);
 
     // Mensaje de instrucción
-    Colocar('Presione Enter para Seleccionar.', lightblue, 9, 52);
+    Colocar('Navegue usando las flechas laterales', lightblue, 9, 52);
 end;
 Procedure Resaltar(var x,y:Longword);
 begin

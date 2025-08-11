@@ -39,18 +39,21 @@ begin
        ListarInfraccionesEntreFechas(arch_inf,fechaInicio,fechaFin);
        end;
      '3':begin
+       clrscr;
+       colocar('Ingrese DNI del conductor:',15,10,10);
+       verificar_dni(dni_buscado,37,10);
        Infracciones_cond(arch_inf,dni_buscado);
        end;
      '4':begin
        scoring_cero(arch_cond);
         end;
      end;
-       if op<>'0' then
+       if (op<>'0') then
        begin
        colocar('Opción inválida. Vuelva a intentarlo',12,40,22);
        pulse_para_continuar;
        end;
-     until op='0' ;
+     until (op='0') ;
 end;
 //menu de estadisticas
 procedure menu_estadisticas(var arch_cond: ARCHIVO_CONDUCTORES; var arch_inf: ARCHIVO_INFRACCIONES);
