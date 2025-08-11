@@ -76,9 +76,7 @@ begin
             #75: if (numpag > 1) then Dec(numpag);       // Izquierda
         end;
     end;
-
     close(arch_cond);
-    readkey;
 end;
 
   procedure pagina_inf(min, max: cardinal; datos: datos_infracciones; var arch_inf: ARCHIVO_INFRACCIONES; var contador: cardinal; var y: cardinal; n: cardinal;var pos:integer; condicion:boolean);
@@ -145,7 +143,6 @@ end;
         y := y + 2;
       end;
     end;
-    //inc(pos);
   end;
 
 procedure ListarInfraccionesEntreFechas(var arch_inf: ARCHIVO_INFRACCIONES;var fechaInicio, fechaFin: FECHA);
@@ -324,7 +321,6 @@ end;
       begin
         clrscr;
         colocar('No hay conductores con Scoring 0', red,10,10);
-        pulse_para_continuar;
       end;
       close(arch_cond);
     end;

@@ -27,6 +27,7 @@ begin
      case op of
      '1':begin
        ListarConductores(arbol_apynom,arch_cond);
+       pulse_para_continuar;
        end;
      '2':begin
        clrscr;
@@ -37,15 +38,18 @@ begin
        verificar_fecha(fecha2,46,12);
        ConvertirFechaStringADate(fechafin,fecha2);
        ListarInfraccionesEntreFechas(arch_inf,fechaInicio,fechaFin);
+       pulse_para_continuar;
        end;
      '3':begin
        clrscr;
        colocar('Ingrese DNI del conductor:',15,10,10);
        verificar_dni(dni_buscado,37,10);
        Infracciones_cond(arch_inf,dni_buscado);
+       pulse_para_continuar;
        end;
      '4':begin
        scoring_cero(arch_cond);
+       pulse_para_continuar;
         end;
      end;
        if (op<>'0') then
@@ -103,7 +107,6 @@ begin
      colocar('El rango de edades con mas infracciones es : '+RangoEtarioConMasInfracciones(arch_cond,arch_inf),15,10,22);
      pulse_para_continuar;
      end;
-     end
      else
        if op<>'0' then
        begin

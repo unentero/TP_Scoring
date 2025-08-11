@@ -197,7 +197,6 @@ begin
           end;
       end;
       close(arch_inf);
-      readkey;
     end;
 
 procedure Infracciones_cond(var arch_inf: ARCHIVO_INFRACCIONES; var dni_buscado: string);
@@ -262,9 +261,7 @@ begin
       #75: if (numpag > 1) then Dec(numpag);       // Izquierda
     end;
   end;
-
   close(arch_inf);
-  readkey;
 end;
 
   procedure scoring_cero(var arch_cond:ARCHIVO_CONDUCTORES);

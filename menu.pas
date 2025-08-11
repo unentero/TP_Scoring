@@ -27,6 +27,7 @@ begin
      case op of
      '1':begin
        ListarConductores(arbol_apynom,arch_cond);
+       volver_al_menu(op);
        end;
      '2':begin
        clrscr;
@@ -37,15 +38,18 @@ begin
        verificar_fecha(fecha2,46,12);
        ConvertirFechaStringADate(fechafin,fecha2);
        ListarInfraccionesEntreFechas(arch_inf,fechaInicio,fechaFin);
+       volver_al_menu(op);
        end;
      '3':begin
        clrscr;
        colocar('Ingrese DNI del conductor:',15,10,10);
        verificar_dni(dni_buscado,37,10);
        Infracciones_cond(arch_inf,dni_buscado);
+       volver_al_menu(op);
        end;
      '4':begin
        scoring_cero(arch_cond);
+       volver_al_menu(op);
         end;
      end;
        if (op<>'0') then

@@ -7,6 +7,7 @@ uses
   crt,archivos_conductores,archivos_infracciones;
 
 procedure pulse_para_continuar;
+procedure volver_al_menu(var op:char);
 procedure titulo (tit:string);
 procedure colocar(palabra:string; color,x,y: byte);
 Procedure colocar_res(palabra:string; color,x,y: byte);
@@ -24,6 +25,17 @@ procedure pulse_para_continuar;          // Presione una tecla.
         WRITE('Presione Enter para continuar...') ;
         readkey;
         textcolor(white);
+    end;
+procedure volver_al_menu(var op:char);
+    begin
+        textcolor(11);
+        GOTOXY(65,40);
+        WRITE('Escriba 0 para retroceder');
+        GOTOXY(65,41);
+        write('>');
+        textcolor(white);
+        GOTOXY(67,41);
+        readln(op);
     end;
 procedure titulo (tit:string);         // Título.
     begin
@@ -94,22 +106,17 @@ end;
     write('___________________________________________________');
     gotoxy(9,30);
     write('___________________________________________________');
-    GOTOXY(65,35);
-    WRITE('Presione Esc para salir.') ;
+    GOTOXY(9,32);
+    WRITE('Navegue usando las flechas laterales y pulse Esc para salir.') ;
     textcolor(white);
     end;
     procedure interfaz_inf;
 begin
-    // Encabezado de la tabla
     Colocar('+---------------┬--------------┬----------------------------------------------------------------+', lightblue, 10, 6);
     Colocar('| Fecha Infrac. | DNI          | Descripcion                                                    |', lightblue, 10, 7);
     Colocar('+---------------+--------------+----------------------------------------------------------------+', lightblue, 10, 8);
-
-    // Línea de separación
     Colocar('+---------------+--------------+----------------------------------------------------------------+', lightblue, 10, 30);
-
-    // Mensaje de instrucción
-    Colocar('Navegue usando las flechas laterales', lightblue, 9, 32);
+    Colocar('Navegue usando las flechas laterales y pulse Esc para salir.', lightblue, 10, 32);
 end;
 Procedure Resaltar(var x,y:Longword);
 begin

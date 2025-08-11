@@ -172,8 +172,10 @@
       <Unit>
         <Filename Value="florituras.pas"/>
         <UnitName Value="FLORITURAS"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="6"/>
-        <CursorPos X="31" Y="9"/>
+        <TopLine Value="90"/>
+        <CursorPos X="16" Y="109"/>
         <UsageCount Value="103"/>
         <Loaded Value="True"/>
       </Unit>
@@ -181,18 +183,16 @@
         <Filename Value="listados.pas"/>
         <UnitName Value="LISTADOS"/>
         <EditorIndex Value="7"/>
-        <TopLine Value="299"/>
-        <CursorPos X="7" Y="263"/>
+        <CursorPos X="3" Y="328"/>
         <UsageCount Value="103"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="menu.pas"/>
         <UnitName Value="MENU"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="10"/>
-        <TopLine Value="76"/>
-        <CursorPos X="6" Y="106"/>
+        <TopLine Value="39"/>
+        <CursorPos X="28" Y="58"/>
         <UsageCount Value="103"/>
         <Loaded Value="True"/>
       </Unit>
@@ -200,6 +200,7 @@
         <Filename Value="porcentajes.pas"/>
         <UnitName Value="Porcentajes"/>
         <EditorIndex Value="11"/>
+        <TopLine Value="59"/>
         <CursorPos X="10" Y="13"/>
         <UsageCount Value="103"/>
         <Loaded Value="True"/>
@@ -219,13 +220,13 @@
         <EditorIndex Value="-1"/>
         <WindowIndex Value="-1"/>
         <CursorPos X="40" Y="9"/>
-        <UsageCount Value="7"/>
+        <UsageCount Value="6"/>
       </Unit>
       <Unit>
         <Filename Value="types.pas"/>
         <UnitName Value="TYPES"/>
         <EditorIndex Value="-1"/>
-        <UsageCount Value="12"/>
+        <UsageCount Value="11"/>
       </Unit>
       <Unit>
         <Filename Value="..\..\..\..\..\usr\lib\fpc\src\packages\rtl-objpas\src\inc\dateutil.inc"/>
@@ -236,10 +237,6 @@
       </Unit>
     </Units>
     <JumpHistory HistoryIndex="29">
-      <Position>
-        <Filename Value="listados.pas"/>
-        <Caret Line="152" Column="3" TopLine="136"/>
-      </Position>
       <Position>
         <Filename Value="listados.pas"/>
         <Caret Line="175" Column="15" TopLine="169"/>
@@ -355,6 +352,10 @@
       <Position>
         <Filename Value="menu.pas"/>
         <Caret Line="103" Column="62" TopLine="87"/>
+      </Position>
+      <Position>
+        <Filename Value="florituras.pas"/>
+        <Caret Line="29"/>
       </Position>
     </JumpHistory>
     <RunParams>
