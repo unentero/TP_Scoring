@@ -16,10 +16,10 @@ begin
   repeat
   clrscr;
   colocar ('MENÚ LISTADOS',15,45,6);
-  colocar ('1. Listado ordenado por Apellido y Nombres de Conductores',15,37,8);
-  colocar ('2. Listado ordenado por fecha de todas las infracciones entre dos fechas',15,37,10);
-  colocar ('3. Listado ordenado por fecha de todas las infracciones de un conductor entre dos fechas',15,37,12);
-  colocar ('4. Listado de los infractores a los cuales su scoring llegó a 0',15,37,14);
+  colocar ('1. Listado ordenado alfabeticamente de Conductores',15,37,8);
+  colocar ('2. Listado de todas las infracciones entre dos fechas',15,37,10);
+  colocar ('3. Listado de todas las infracciones de un conductor',15,37,12);
+  colocar ('4. Listado de los infractores con scoring 0',15,37,14);
   colocar ('0. Salir',15,37,16);
   colocar ('> ',15,37,18);
   gotoxy (39,18);
@@ -27,7 +27,7 @@ begin
      case op of
      '1':begin
        ListarConductores(arbol_apynom,arch_cond);
-       pulse_para_continuar;
+       volver_al_menu(op);
        end;
      '2':begin
        clrscr;
@@ -38,18 +38,18 @@ begin
        verificar_fecha(fecha2,46,12);
        ConvertirFechaStringADate(fechafin,fecha2);
        ListarInfraccionesEntreFechas(arch_inf,fechaInicio,fechaFin);
-       pulse_para_continuar;
+       volver_al_menu(op);
        end;
      '3':begin
        clrscr;
        colocar('Ingrese DNI del conductor:',15,10,10);
        verificar_dni(dni_buscado,37,10);
        Infracciones_cond(arch_inf,dni_buscado);
-       pulse_para_continuar;
+       volver_al_menu(op);
        end;
      '4':begin
        scoring_cero(arch_cond);
-       pulse_para_continuar;
+       volver_al_menu(op);
         end;
      end;
        if (op<>'0') then

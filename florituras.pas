@@ -34,8 +34,10 @@ procedure volver_al_menu(var op:char);
         GOTOXY(65,41);
         write('>');
         textcolor(white);
+        repeat
         GOTOXY(67,41);
         readln(op);
+        until (op='0');
     end;
 procedure titulo (tit:string);         // Título.
     begin

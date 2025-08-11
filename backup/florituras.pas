@@ -34,8 +34,10 @@ procedure volver_al_menu(var op:char);
         GOTOXY(65,41);
         write('>');
         textcolor(white);
+        repeat
         GOTOXY(67,41);
         readln(op);
+        until not(op<>0);
     end;
 procedure titulo (tit:string);         // Título.
     begin
@@ -106,7 +108,7 @@ end;
     write('___________________________________________________');
     gotoxy(9,30);
     write('___________________________________________________');
-    GOTOXY(65,35);
+    GOTOXY(9,32);
     WRITE('Navegue usando las flechas laterales y pulse Esc para salir.') ;
     textcolor(white);
     end;
@@ -116,7 +118,7 @@ begin
     Colocar('| Fecha Infrac. | DNI          | Descripcion                                                    |', lightblue, 10, 7);
     Colocar('+---------------+--------------+----------------------------------------------------------------+', lightblue, 10, 8);
     Colocar('+---------------+--------------+----------------------------------------------------------------+', lightblue, 10, 30);
-    Colocar('Navegue usando las flechas laterales y pulse Esc para salir.', lightblue, 9, 32);
+    Colocar('Navegue usando las flechas laterales y pulse Esc para salir.', lightblue, 10, 32);
 end;
 Procedure Resaltar(var x,y:Longword);
 begin

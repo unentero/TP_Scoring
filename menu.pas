@@ -16,13 +16,13 @@ begin
   repeat
   clrscr;
   colocar ('MENÚ LISTADOS',15,45,6);
-  colocar ('1. Listado ordenado por Apellido y Nombres de Conductores',15,37,8);
-  colocar ('2. Listado ordenado por fecha de todas las infracciones entre dos fechas',15,37,10);
-  colocar ('3. Listado ordenado por fecha de todas las infracciones de un conductor entre dos fechas',15,37,12);
-  colocar ('4. Listado de los infractores a los cuales su scoring llegó a 0',15,37,14);
-  colocar ('0. Salir',15,37,16);
-  colocar ('> ',15,37,18);
-  gotoxy (39,18);
+  colocar ('1. Listado ordenado alfabeticamente de Conductores',15,10,8);
+  colocar ('2. Listado de todas las infracciones entre dos fechas',15,10,10);
+  colocar ('3. Listado de todas las infracciones de un conductor',15,10,12);
+  colocar ('4. Listado de los infractores con scoring 0',15,10,14);
+  colocar ('0. Salir',15,10,16);
+  colocar ('> ',15,10,18);
+  gotoxy (12,18);
   readln(op);
      case op of
      '1':begin
@@ -54,7 +54,7 @@ begin
      end;
        if (op<>'0') then
        begin
-       colocar('Opción inválida. Vuelva a intentarlo',12,40,22);
+       colocar('Opción inválida. Vuelva a intentarlo',12,10,22);
        pulse_para_continuar;
        end;
      until (op='0') ;

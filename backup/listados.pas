@@ -76,9 +76,7 @@ begin
             #75: if (numpag > 1) then Dec(numpag);       // Izquierda
         end;
     end;
-
     close(arch_cond);
-    readkey;
 end;
 
   procedure pagina_inf(min, max: cardinal; datos: datos_infracciones; var arch_inf: ARCHIVO_INFRACCIONES; var contador: cardinal; var y: cardinal; n: cardinal;var pos:integer; condicion:boolean);
@@ -145,7 +143,6 @@ end;
         y := y + 2;
       end;
     end;
-    //inc(pos);
   end;
 
 procedure ListarInfraccionesEntreFechas(var arch_inf: ARCHIVO_INFRACCIONES;var fechaInicio, fechaFin: FECHA);
@@ -273,23 +270,15 @@ end;
     begin
       reset(arch_cond);
       contador := 0;
-      y := 3; // Posicion vertical inicial
-      registrosFiltrados := 0;
-      while ((pos > (-1)) and (pos<filesize(arch_cond))) and (registrosFiltrados<>0) do
-      begin
-        seek(arch_cond, pos);
-        read(arch_cond, r);
-        if r.puntos = 0 then
-        inc(registrosFiltrados);
-      end;
-      if registrosFiltrados<>0 then
+      y := 13; // Posicion vertical inicial
       begin
         reset(arch_cond);
         clrscr;
-        writeln('LISTADO DE CONDUCTORES CON SCORING 0');
-        writeln('-----------------------------------');
-        writeln('APELLIDO Y NOMBRE':30, 'DNI':15);
-        writeln('-----------------------------------');
+        Colocar('Presione cualquier tecla para continuar (ESC para salir)...',green,10,8);
+        Colocar('Listado de Conductores Con Scoring 0',lightblue,10,10);
+        colocar('-----------------------------------------------------',lightblue,10,y-1);
+        colocar('Apellido y nombre: ',lightblue,10,y); colocar('DNI: ',lightblue,50,y);
+        colocar('-----------------------------------------------------',lightblue,10,y+1);
 
         // Mostrar todos los registros de una vez
         while not(eof(arch_cond)) and (tecla<>#27) do
@@ -297,9 +286,9 @@ end;
           read(arch_cond, r);
           if r.puntos = 0 then
           begin
-            gotoxy(5, y);
+            gotoxy(29, y);
             write(r.apynom);
-            gotoxy(35, y);
+            gotoxy(50, y);
             write(r.dni);
             y := y + 1;
             contador := contador + 1;
@@ -307,24 +296,22 @@ end;
             // Pausa cada 20 registros
             if contador mod 20 = 0 then
             begin
-              gotoxy(5, y + 2);
-              write('Presione cualquier tecla para continuar (ESC para salir)...');
               tecla := readkey;
               clrscr;
-              writeln('LISTADO DE CONDUCTORES CON SCORING 0');
-              writeln('-----------------------------------');
-              writeln('APELLIDO Y NOMBRE':30, 'DNI':15);
-              writeln('-----------------------------------');
-              y := 3; // Reiniciar posicion vertical
+              Colocar('Presione cualquier tecla para continuar (ESC para salir)...',green,10,8);
+              Colocar('Listado de Conductores Con Scoring 0',lightblue,10,10);
+              colocar('-----------------------------------------------------',lightblue,10,y-1);
+              colocar('Apellido y nombre: ',lightblue,10,y); colocar('DNI: ',lightblue,50,y);
+              colocar('-----------------------------------------------------',lightblue,10,y+1);
+        y := 3; // Reiniciar posicion vertical
             end;
           end;
         end;
-      end
-      else
+      end;
+      if (contador=0) then
       begin
         clrscr;
         colocar('No hay conductores con Scoring 0', red,10,10);
-        pulse_para_continuar;
       end;
       close(arch_cond);
     end;
