@@ -2,7 +2,7 @@ unit MENU;
 {$codepage utf8}
 interface
 uses
-  crt,FLORITURAS,ARBOLES,ARCHIVOS_INFRACCIONES,ARCHIVOS_CONDUCTORES,ABMC_GENERAL,LISTADOS,Porcentajes,VALIDACIONES,AMC_INFRACCIONES,Manejo_conductores,Manejo_Infracciones;
+  crt,FLORITURAS,ARBOLES,ARCHIVOS_INFRACCIONES,ARCHIVOS_CONDUCTORES,ABMC_GENERAL,LISTADOS,Porcentajes,VALIDACIONES,AMC_INFRACCIONES,Manejo_conductores,Manejo_Infracciones,SysUtils;
 procedure iniciar;
 implementation
 //menu de Listados
@@ -48,12 +48,12 @@ begin
        scoring_cero(arch_cond);
         end;
      end;
-       if (op<>'0') or (op<>#27) then
+       if (op<>'0') then
        begin
        colocar('Opción inválida. Vuelva a intentarlo',12,40,22);
        pulse_para_continuar;
        end;
-     until (op='0') or (op=#27) ;
+     until (op='0') ;
 end;
 //menu de estadisticas
 procedure menu_estadisticas(var arch_cond: ARCHIVO_CONDUCTORES; var arch_inf: ARCHIVO_INFRACCIONES);
@@ -65,34 +65,49 @@ var
 begin
   repeat
   clrscr;
-  colocar(' MENÚ ESTADÍSTICAS ',15,45,6);
-  colocar('1. Cantidad de infracciones entre dos fechas',15,37,8);
-  colocar('2. Porcentaje de conductores con reincidencia',15,37,10);
-  colocar('3. Porcentaje de conductores con scoring 0',15,37,12);
-  colocar('4. Cantidad de conductores menores de edad',15,37,14);
-  colocar('5. Rango etario con más infracciones',15,37,16);
-  colocar('0. Salir',15,37,18);
-  colocar('> ',15,37,20);
-  gotoxy (39,20);
+  titulo(' MENÚ ESTADÍSTICAS ');
+  colocar('1. Cantidad de infracciones entre dos fechas',15,10,8);
+  colocar('2. Porcentaje de conductores con reincidencia',15,10,10);
+  colocar('3. Porcentaje de conductores con scoring 0',15,10,12);
+  colocar('4. Cantidad de conductores menores de edad',15,10,14);
+  colocar('5. Rango etario con más infracciones',15,10,16);
+  colocar('0. Salir',15,10,18);
+  colocar('> ',15,10,20);
+  gotoxy (11,20);
   readln(op);
      case op of
      '1':begin
-       writeln('Ingrese fecha de inicio (DD/MM/AAAA)');
-       readln(fecha1);
+       colocar('Ingrese fecha de inicio (DD/MM/AAAA):',15,10,22);
+       verificar_fecha(fecha1,47,22);
        ConvertirFechaStringADate(fechainicio,fecha1);
-       writeln('Ingrese fecha de final (DD/MM/AAAA)');
-       readln(fecha2);
+       colocar('Ingrese fecha de final (DD/MM/AAAA):',15,10,24);
+       verificar_fecha(fecha2,46,24);
        ConvertirFechaStringADate(fechafin,fecha2);
        ContarInfraccionesEntreFechas(arch_inf,fechaInicio,fechaFin,count);
+       colocar('Cantidad de infracciones entre '+fecha1+' y '+fecha2+ ' : '+ IntToStr(count), 15,10,26);
+       pulse_para_continuar;
        end;
-     '2':PorcentajeReincidencia(arch_cond);
-     '3':PorcentajeScoring0(arch_cond);
-     '4':ContarMenores(arch_cond);
-     '5':RangoEtarioConMasInfracciones(arch_cond,arch_inf);
+     '2':begin
+       colocar('El porcentaje de reincidencia es de : %'+FloatToStr(PorcentajeReincidencia(arch_cond)),15,10,22);
+       pulse_para_continuar;
+       end;
+     '3':begin
+       colocar('El porcentaje de conductores con Scoring 0 es de : %'+FloatToStr(PorcentajeScoring0(arch_cond)),15,10,22);
+       pulse_para_continuar;
+     end;
+     '4':begin
+       colocar('La cantidad de conductores menores de edad es de : '+IntToStr(ContarMenores(arch_cond)),15,10,22);
+       pulse_para_continuar;
+       end;
+     '5':begin
+     colocar('El rango de edades con mas infracciones es : '+RangoEtarioConMasInfracciones(arch_cond,arch_inf),15,10,22);
+     pulse_para_continuar;
+     end;
+     end
      else
        if op<>'0' then
        begin
-       writeln('Opción inválida. Vuelva a intentarlo',12,40,22);
+       colocar('Opción inválida. Vuelva a intentarlo',red,40,22);
        pulse_para_continuar
        end;
      end;

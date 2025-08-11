@@ -6,14 +6,13 @@ uses
   SysUtils, crt,DateUtils,archivos_conductores, archivos_infracciones,VALIDACIONES,Manejo_conductores,Manejo_Infracciones;
 
 function CalcularEdad(fechaNacimiento: FECHA): Integer;
-procedure ContarInfraccionesEntreFechas(var archivoInfracciones: ARCHIVO_INFRACCIONES; fechaInicio, fechaFin: FECHA; var count: Integer);
+procedure ContarInfraccionesEntreFechas(var arch_inf: ARCHIVO_INFRACCIONES; fechaInicio, fechaFin: FECHA; var count: Integer);
 function PorcentajeReincidencia(var archivoConductores: ARCHIVO_CONDUCTORES): Real;
 function PorcentajeScoring0(var archivoConductores: ARCHIVO_CONDUCTORES): Real;
-procedure CalcularTotal(var archivoConductores: ARCHIVO_CONDUCTORES; var archivoInfracciones: ARCHIVO_INFRACCIONES);
+function ContarMenores(var archivo_conductores: ARCHIVO_CONDUCTORES): Integer;
 function RangoEtarioConMasInfracciones(var archivoConductores: ARCHIVO_CONDUCTORES; var archivoInfracciones: ARCHIVO_INFRACCIONES): string;
 
 implementation
-
 function CalcularEdad(fechaNacimiento: FECHA): Integer;
 var
   fechaActual: TDateTime;
@@ -24,30 +23,24 @@ begin
   if (MonthOf(fechaActual) < fechaNacimiento.mes) or ((MonthOf(fechaActual) = fechaNacimiento.mes) and (DayOf(fechaActual) < fechaNacimiento.dia))
   then Dec(Result);
 end;
-
-procedure ContarInfraccionesEntreFechas(var archivoInfracciones: ARCHIVO_INFRACCIONES;fechaInicio, fechaFin: FECHA; var count: Integer);
+procedure ContarInfraccionesEntreFechas(var arch_inf: ARCHIVO_INFRACCIONES;fechaInicio, fechaFin: FECHA; var count: Integer);
 var
-  datosInfraccion: datos_infracciones;
+  datos: datos_infracciones;
 begin
-  Reset(archivoInfracciones);
+  Reset(arch_inf);
   count := 0;
 
-  while not EOF(archivoInfracciones) do
+  while not EOF(arch_inf) do
   begin
-    Read(archivoInfracciones, datosInfraccion);
-
-    if (CompareDate(EncodeDate(datosInfraccion.fecha_infraccion.anio,datosInfraccion.fecha_infraccion.mes, datosInfraccion.fecha_infraccion.dia), EncodeDate(fechaInicio.anio,fechaInicio.mes, fechaInicio.dia)) >= 0) and
-      (CompareDate(EncodeDate(datosInfraccion.fecha_infraccion.anio,
-      datosInfraccion.fecha_infraccion.mes, datosInfraccion.fecha_infraccion.dia), EncodeDate(fechaFin.anio,
-      fechaFin.mes, fechaFin.dia)) <= 0) then
+    Read(arch_inf, datos);
+    if ver_fecha_entrefechas(datos.fecha,fechaInicio,fechaFin) then
     begin
       Inc(count);
     end;
   end;
 
-  Close(archivoInfracciones);
+  Close(arch_inf);
 end;
-
 function PorcentajeReincidencia(var archivoConductores: ARCHIVO_CONDUCTORES): Real;
 var
   datosConductor: datos_conductores;
@@ -73,7 +66,6 @@ begin
   else
     Result := 0;
 end;
-
 function PorcentajeScoring0(var archivoConductores: ARCHIVO_CONDUCTORES): Real;
 var
   datosConductor: datos_conductores;
@@ -99,13 +91,33 @@ begin
   else
     Result := 0;
 end;
-
-procedure CalcularTotal(var archivoConductores: ARCHIVO_CONDUCTORES; var archivoInfracciones: ARCHIVO_INFRACCIONES);
+function ContarMenores(var archivo_conductores: ARCHIVO_CONDUCTORES): Integer;
+var
+  conductor: datos_conductores;
+  contador: Integer;
+  anio_actual, mes_actual, dia_actual: Word;
 begin
-  // Implementar lógica basada en lo que se considere como una métrica relevante para la municipalidad.
-  // Este es un marcador de posición; reemplazarlo con tu implementación real.
-end;
+  contador := 0;
+  Assign(archivo_conductores, ruta1);
+  Reset(archivo_conductores);
 
+  DecodeDate(Date, anio_actual, mes_actual, dia_actual); // Obtener la fecha actual
+
+  while not EOF(archivo_conductores) do
+  begin
+    Read(archivo_conductores, conductor);
+    if (anio_actual - conductor.Nacimiento.anio < 18) or
+       ((anio_actual - conductor.Nacimiento.anio = 18) and
+        ((mes_actual < conductor.Nacimiento.mes) or
+         ((mes_actual = conductor.Nacimiento.mes) and (dia_actual < conductor.Nacimiento.dia)))) then
+    begin
+      Inc(contador);
+    end;
+  end;
+
+  Close(archivo_conductores);
+  ContarMenores := contador;
+end;
 function RangoEtarioConMasInfracciones(var archivoConductores: ARCHIVO_CONDUCTORES;
   var archivoInfracciones: ARCHIVO_INFRACCIONES): string;
 var
@@ -134,27 +146,6 @@ begin
       Inc(ageRangeCount[3]);
   end;
 
-  // Find the age range with the most infractions
-  {maxCount := ageRangeCount[1];
-  maxIndex := 1;
-
-  while not EOF(archivoInfracciones) do
-  begin
-    Read(archivoInfracciones, datosInfraccion);
-    age := Calcularedad(datosInfraccion.fecha_infraccion);
-
-    if age < 30 then
-      Inc(ageRangeCount[1])
-    else if (age >= 31) and (age <= 50) then
-      Inc(ageRangeCount[2])
-    else
-      Inc(ageRangeCount[3]);
-  end;
-
-  Close(archivoConductores);
-  Close(archivoInfracciones);
-  }
-  // Find the age range with the most infractions
   maxCount := ageRangeCount[1];
   maxIndex := 1;
 

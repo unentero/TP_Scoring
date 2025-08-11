@@ -6,7 +6,7 @@ uses
   SysUtils, crt,DateUtils,archivos_conductores, archivos_infracciones,VALIDACIONES,Manejo_conductores,Manejo_Infracciones;
 
 function CalcularEdad(fechaNacimiento: FECHA): Integer;
-procedure ContarInfraccionesEntreFechas(var archivoInfracciones: ARCHIVO_INFRACCIONES; fechaInicio, fechaFin: FECHA; var count: Integer);
+procedure ContarInfraccionesEntreFechas(var arch_inf: ARCHIVO_INFRACCIONES; fechaInicio, fechaFin: FECHA; var count: Integer);
 function PorcentajeReincidencia(var archivoConductores: ARCHIVO_CONDUCTORES): Real;
 function PorcentajeScoring0(var archivoConductores: ARCHIVO_CONDUCTORES): Real;
 function ContarMenores(var archivo_conductores: ARCHIVO_CONDUCTORES): Integer;
@@ -23,27 +23,23 @@ begin
   if (MonthOf(fechaActual) < fechaNacimiento.mes) or ((MonthOf(fechaActual) = fechaNacimiento.mes) and (DayOf(fechaActual) < fechaNacimiento.dia))
   then Dec(Result);
 end;
-procedure ContarInfraccionesEntreFechas(var archivoInfracciones: ARCHIVO_INFRACCIONES;fechaInicio, fechaFin: FECHA; var count: Integer);
+procedure ContarInfraccionesEntreFechas(var arch_inf: ARCHIVO_INFRACCIONES;fechaInicio, fechaFin: FECHA; var count: Integer);
 var
-  datosInfraccion: datos_infracciones;
+  datos: datos_infracciones;
 begin
-  Reset(archivoInfracciones);
+  Reset(arch_inf);
   count := 0;
 
-  while not EOF(archivoInfracciones) do
+  while not EOF(arch_inf) do
   begin
-    Read(archivoInfracciones, datosInfraccion);
-
-    if (CompareDate(EncodeDate(datosInfraccion.fecha_infraccion.anio,datosInfraccion.fecha_infraccion.mes, datosInfraccion.fecha_infraccion.dia), EncodeDate(fechaInicio.anio,fechaInicio.mes, fechaInicio.dia)) >= 0) and
-      (CompareDate(EncodeDate(datosInfraccion.fecha_infraccion.anio,
-      datosInfraccion.fecha_infraccion.mes, datosInfraccion.fecha_infraccion.dia), EncodeDate(fechaFin.anio,
-      fechaFin.mes, fechaFin.dia)) <= 0) then
+    Read(arch_inf, datos);
+    if ver_fecha_entrefechas(datos.fecha_infraccion,fechaInicio,fechaFin) then
     begin
       Inc(count);
     end;
   end;
 
-  Close(archivoInfracciones);
+  Close(arch_inf);
 end;
 function PorcentajeReincidencia(var archivoConductores: ARCHIVO_CONDUCTORES): Real;
 var
