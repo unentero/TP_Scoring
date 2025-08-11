@@ -136,7 +136,7 @@ procedure cargar_conductores(var arch_cond: ARCHIVO_CONDUCTORES; var r: DATOS_CO
 var
  dia, mes, anio:word;
  ans:char;
- apynom,telefono,email:string;
+ apynom,telefono,email,nacimiento:string;
 begin
      titulo (' Alta de la Persona ');
      begin
@@ -152,6 +152,9 @@ begin
            colocar('E-MAIL: ',15,40,13);
            verificar_email(email,49,13);
            r.Mail :=email;
+           colocar('FECHA DE NACIMIENTO (DD/MM/AAAA): ',15,40,15);
+           verificar_fecha(nacimiento,73,15);
+           ConvertirFechaStringADate(r.nacimiento,nacimiento);
            r.puntos:=20;
            r.habilitado:=true;
            colocar('FECHA DE HABILITACIÓN: ',15,40,19);
@@ -173,8 +176,8 @@ var
 begin
      cargar_conductores(arch_cond,r,a);
      begin
-         colocar('Esta seguro de Agregar? s/n',15,80,15);
-         colocar('- ',15,80,16);
+         colocar('Esta seguro de Agregar? s/n',15,80,17);
+         colocar('- ',15,80,18);
          readln(res);
          if (res='s')or(res='S') then
          begin

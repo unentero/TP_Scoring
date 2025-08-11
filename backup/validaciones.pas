@@ -21,6 +21,7 @@ Procedure verificar_todo_letras(var clave:string;x,y:cardinal);
 Procedure verificar_fecha(var clave:string;x,y:cardinal);
 procedure ConvertirFechaStringADate(var fechaRecord: FECHA; fechaString: string);
 function ver_fecha_entrefechas(fecha_input,fecha_inicio,fecha_fin:FECHA):boolean;
+function es_fecha_igual_mayor(fecha1,fecha2:fecha):boolean;
 implementation
 
 function numero(car: string): boolean;

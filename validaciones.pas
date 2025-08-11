@@ -221,33 +221,50 @@ begin
   EsFechaValida := True;
 end;
 Procedure verificar_fecha(var clave:string;x:cardinal;y:cardinal);
+var error: integer;
 begin
+error:=0;
 repeat
+  if (error<>0) then textcolor(red);
   gotoxy(x,y);
   readln(clave)
 until EsFechaValida(clave);
+textcolor(white);
 end;
 Procedure verificar_email(var clave:string; x,y:cardinal);
+var error: integer;
 begin
+error:=0;
 repeat
+  if (error<>0) then textcolor(red);
   gotoxy(x,y);
   readln(clave)
 until (pos('@',clave)<>0) and (pos('@',clave)<pos('.',clave));
+textcolor(white);
 end;
 Procedure verificar_telefono(var clave:string; x,y:cardinal);
+var error: integer;
 begin
+error:=0;
 repeat
+  if (error<>0) then textcolor(red);
   gotoxy(x,y);
   readln(clave)
 until (todo_numeros(clave)) and (length(clave)<11) and (length(clave)>8);
+textcolor(white);
 end;
 
 Procedure verificar_dni(var clave:string; x,y:cardinal);
+var error: integer;
 begin
+error:=0;
 repeat
+  if (error<>0) then textcolor(red);
   gotoxy(x,y);
-  readln(clave)
+  readln(clave);
+  inc(error);
 until ((todo_numeros(clave)) and (length(clave)=8) or (clave='0')); //no digo que el dni puede ser mayor a 8 unicamente porque para cuando los dni empiecen por 100 millones no creo que usen este sistema.
+textcolor(white);
 end;
 function ver_fecha_entrefechas(fecha_input,fecha_inicio,fecha_fin:FECHA):boolean;
 begin

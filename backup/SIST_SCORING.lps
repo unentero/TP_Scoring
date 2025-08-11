@@ -130,9 +130,10 @@
       <Unit>
         <Filename Value="abmc_general.pas"/>
         <UnitName Value="ABMC_GENERAL"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
-        <TopLine Value="196"/>
-        <CursorPos X="50" Y="212"/>
+        <TopLine Value="133"/>
+        <CursorPos X="41" Y="156"/>
         <UsageCount Value="103"/>
         <Loaded Value="True"/>
       </Unit>
@@ -140,7 +141,7 @@
         <Filename Value="amc_infracciones.pas"/>
         <UnitName Value="AMC_INFRACCIONES"/>
         <EditorIndex Value="2"/>
-        <TopLine Value="224"/>
+        <TopLine Value="142"/>
         <CursorPos X="90" Y="240"/>
         <UsageCount Value="103"/>
         <Loaded Value="True"/>
@@ -157,8 +158,7 @@
         <Filename Value="archivos_conductores.pas"/>
         <UnitName Value="ARCHIVOS_CONDUCTORES"/>
         <EditorIndex Value="4"/>
-        <TopLine Value="9"/>
-        <CursorPos X="5" Y="25"/>
+        <CursorPos X="7" Y="16"/>
         <UsageCount Value="103"/>
         <Loaded Value="True"/>
       </Unit>
@@ -182,7 +182,7 @@
         <Filename Value="listados.pas"/>
         <UnitName Value="LISTADOS"/>
         <EditorIndex Value="7"/>
-        <TopLine Value="36"/>
+        <TopLine Value="37"/>
         <CursorPos X="16" Y="276"/>
         <UsageCount Value="103"/>
         <Loaded Value="True"/>
@@ -190,10 +190,9 @@
       <Unit>
         <Filename Value="menu.pas"/>
         <UnitName Value="MENU"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="10"/>
-        <TopLine Value="241"/>
-        <CursorPos X="14" Y="270"/>
+        <TopLine Value="61"/>
+        <CursorPos X="54" Y="86"/>
         <UsageCount Value="103"/>
         <Loaded Value="True"/>
       </Unit>
@@ -201,8 +200,8 @@
         <Filename Value="porcentajes.pas"/>
         <UnitName Value="Porcentajes"/>
         <EditorIndex Value="11"/>
-        <TopLine Value="135"/>
-        <CursorPos X="10" Y="13"/>
+        <TopLine Value="112"/>
+        <CursorPos X="52" Y="139"/>
         <UsageCount Value="103"/>
         <Loaded Value="True"/>
       </Unit>
@@ -314,10 +313,6 @@
         <Caret Line="213" Column="42" TopLine="159"/>
       </Position>
       <Position>
-        <Filename Value="abmc_general.pas"/>
-        <Caret Line="135" Column="11" TopLine="168"/>
-      </Position>
-      <Position>
         <Filename Value="amc_infracciones.pas"/>
         <Caret Line="240" Column="93" TopLine="220"/>
       </Position>
@@ -356,6 +351,10 @@
       <Position>
         <Filename Value="validaciones.pas"/>
         <Caret Line="24" Column="60"/>
+      </Position>
+      <Position>
+        <Filename Value="porcentajes.pas"/>
+        <Caret Line="139" Column="52" TopLine="112"/>
       </Position>
     </JumpHistory>
     <RunParams>
