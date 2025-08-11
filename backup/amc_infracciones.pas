@@ -237,7 +237,7 @@ begin
     if (x.puntos=0) then
        begin
             x.reinc:=x.reinc + 1;
-            colocar('De de baja manualmente a este conductor, ya que tiene Scoring 0',orange,40,26);
+            colocar('De de baja manualmente a este conductor, ya que tiene Scoring 0',red,40,26);
        end
        else colocar('Deduccion de puntos realizada exitosamente',lightgreen,40,26);
     end

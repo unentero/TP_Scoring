@@ -231,7 +231,10 @@ begin
         29..41: Descuento := 10;
         42: Descuento := 20;
       end;
+
        x.puntos:= x.puntos-Descuento;
+       if x.puntos<0 then x.puntos:=0;
+
     seek(arch_cond, pos);
     write(arch_cond, x);
     if (x.puntos=0) then
