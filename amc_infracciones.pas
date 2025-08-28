@@ -248,17 +248,6 @@ begin
     colocar('No se restó puntos',red,40,26);
     pulse_para_continuar;
 end;
-{Procedure baja_licencia(var arch_cond:archivo_conductores);
-pos:integer;
-reg:datos_conductores;
-begin
-for pos:=0 to filesize(arch_cond) do
-begin
-seek(arch_cond,pos);
-read(reg,arch_cond);
-
-end;
-end;}
 
 Procedure AMBC_INFRACCIONES (var arch_cond: ARCHIVO_CONDUCTORES;var arch_inf:archivo_infracciones; var arbol_dni:PUNTERO;var arbol_apynom:PUNTERO;var arch_infr: ARCHIVO_INFRACCIONES);
 var
@@ -291,12 +280,8 @@ abrir_archivo_infracciones(arch_inf);
     b:= reg.habilitado;
     alta_infracciones(arch_inf,x,infraccion);
     modificacion_scoring(arch_cond,pos,infraccion);
-    //bajas_licencias;
     end
-    else
-    begin
-    colocar ('El conductor buscado no se encuentra en el Sistema, este caso será enviado a Legales',red,42,13);
-    end;
+    else if pos=0 then colocar('El conductor buscado no se encuentra en el Sistema, este caso será enviado a Legales',red,42,13);
    close(arch_cond);
    close(arch_inf);
     end;

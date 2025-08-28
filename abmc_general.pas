@@ -28,7 +28,9 @@ begin
     gotoxy (42,14);
     write('PUNTOS: ', reg.PUNTOS);
     gotoxy (42,16);
-    write('¿ESTÁ HABILITADO?: ', reg.HABILITADO);
+    if reg.HABILITADO then
+    write('¿ESTÁ HABILITADO?: SI')
+    else write('¿ESTÁ HABILITADO?: NO');
     gotoxy (42,18);
    writeln('FECHA DE HABILITACION: ');
     gotoxy (64,18);
@@ -164,6 +166,7 @@ begin
            r.fecha_hab.mes := mes;
            r.fecha_hab.anio := anio;
            r.REINC:=0;
+           r.estado:=true;
        end;
 end;
 

@@ -28,7 +28,9 @@ begin
     gotoxy (42,14);
     write('PUNTOS: ', reg.PUNTOS);
     gotoxy (42,16);
-    write('¿ESTÁ HABILITADO?: ', reg.HABILITADO);
+    if reg.HABILITADO then
+    write('¿ESTÁ HABILITADO?: SI')
+    else write('¿ESTÁ HABILITADO?: NO');
     gotoxy (42,18);
    writeln('FECHA DE HABILITACION: ');
     gotoxy (64,18);
@@ -153,7 +155,7 @@ begin
            verificar_email(email,49,13);
            r.Mail :=email;
            colocar('FECHA DE NACIMIENTO (DD/MM/AAAA): ',15,40,15);
-           verificar_fecha(nacimiento,77,15);
+           verificar_fecha(nacimiento,73,15);
            ConvertirFechaStringADate(r.nacimiento,nacimiento);
            r.puntos:=20;
            r.habilitado:=true;
@@ -176,8 +178,8 @@ var
 begin
      cargar_conductores(arch_cond,r,a);
      begin
-         colocar('Esta seguro de Agregar? s/n',15,80,15);
-         colocar('- ',15,80,16);
+         colocar('Esta seguro de Agregar? s/n',15,80,17);
+         colocar('- ',15,80,18);
          readln(res);
          if (res='s')or(res='S') then
          begin
