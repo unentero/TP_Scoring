@@ -16,6 +16,7 @@ procedure marco_vertical(x,y,z:byte);
 procedure inicio;
 procedure interfaz_cond;
 procedure interfaz_inf;
+procedure interfaz_inf_cond;
 Procedure Resaltar(var x,y:longword);
 implementation
 procedure pulse_para_continuar;          // Presione una tecla.
@@ -116,6 +117,14 @@ end;
 begin
     Colocar('+---------------┬--------------┬----------------------------------------------------------------+', lightblue, 10, 6);
     Colocar('| Fecha Infrac. | DNI          | Descripcion                                                    |', lightblue, 10, 7);
+    Colocar('+---------------+--------------+----------------------------------------------------------------+', lightblue, 10, 8);
+    Colocar('+---------------+--------------+----------------------------------------------------------------+', lightblue, 10, 30);
+    Colocar('Navegue usando las flechas laterales y pulse Esc para salir.', lightblue, 10, 32);
+end;
+    procedure interfaz_inf_cond;
+begin
+    Colocar('+---------------┬--------------┬----------------------------------------------------------------+', lightblue, 10, 6);
+    Colocar('| Fecha Infrac. | Puntos       | Descripcion                                                    |', lightblue, 10, 7);
     Colocar('+---------------+--------------+----------------------------------------------------------------+', lightblue, 10, 8);
     Colocar('+---------------+--------------+----------------------------------------------------------------+', lightblue, 10, 30);
     Colocar('Navegue usando las flechas laterales y pulse Esc para salir.', lightblue, 10, 32);

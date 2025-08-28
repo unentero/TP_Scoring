@@ -112,7 +112,7 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="Manejo_Infracciones"/>
         <EditorIndex Value="9"/>
-        <TopLine Value="14"/>
+        <TopLine Value="9"/>
         <CursorPos X="29" Y="43"/>
         <UsageCount Value="201"/>
         <Loaded Value="True"/>
@@ -122,7 +122,7 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="Manejo_conductores"/>
         <EditorIndex Value="8"/>
-        <TopLine Value="8"/>
+        <TopLine Value="5"/>
         <CursorPos X="11" Y="10"/>
         <UsageCount Value="201"/>
         <Loaded Value="True"/>
@@ -131,7 +131,7 @@
         <Filename Value="abmc_general.pas"/>
         <UnitName Value="ABMC_GENERAL"/>
         <EditorIndex Value="1"/>
-        <TopLine Value="166"/>
+        <TopLine Value="61"/>
         <CursorPos X="31" Y="180"/>
         <UsageCount Value="103"/>
         <Loaded Value="True"/>
@@ -140,8 +140,7 @@
         <Filename Value="amc_infracciones.pas"/>
         <UnitName Value="AMC_INFRACCIONES"/>
         <EditorIndex Value="2"/>
-        <TopLine Value="142"/>
-        <CursorPos X="90" Y="240"/>
+        <CursorPos X="3" Y="10"/>
         <UsageCount Value="103"/>
         <Loaded Value="True"/>
       </Unit>
@@ -173,16 +172,17 @@
         <Filename Value="florituras.pas"/>
         <UnitName Value="FLORITURAS"/>
         <EditorIndex Value="6"/>
-        <CursorPos X="22" Y="40"/>
+        <CursorPos X="29" Y="19"/>
         <UsageCount Value="103"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="listados.pas"/>
         <UnitName Value="LISTADOS"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="7"/>
-        <TopLine Value="37"/>
-        <CursorPos X="16" Y="276"/>
+        <TopLine Value="289"/>
+        <CursorPos X="26" Y="320"/>
         <UsageCount Value="103"/>
         <Loaded Value="True"/>
       </Unit>
@@ -207,7 +207,6 @@
       <Unit>
         <Filename Value="validaciones.pas"/>
         <UnitName Value="VALIDACIONES"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="12"/>
         <TopLine Value="246"/>
         <CursorPos X="18" Y="232"/>
@@ -237,26 +236,6 @@
       </Unit>
     </Units>
     <JumpHistory HistoryIndex="29">
-      <Position>
-        <Filename Value="menu.pas"/>
-        <Caret Line="5" Column="180"/>
-      </Position>
-      <Position>
-        <Filename Value="menu.pas"/>
-        <Caret Line="87" Column="105" TopLine="77"/>
-      </Position>
-      <Position>
-        <Filename Value="menu.pas"/>
-        <Caret Line="91" Column="62" TopLine="75"/>
-      </Position>
-      <Position>
-        <Filename Value="menu.pas"/>
-        <Caret Line="96" Column="76" TopLine="75"/>
-      </Position>
-      <Position>
-        <Filename Value="menu.pas"/>
-        <Caret Line="93" Column="12" TopLine="75"/>
-      </Position>
       <Position>
         <Filename Value="menu.pas"/>
         <Caret Line="103" Column="62" TopLine="87"/>
@@ -356,6 +335,26 @@
       <Position>
         <Filename Value="porcentajes.pas"/>
         <Caret Line="139" Column="52" TopLine="112"/>
+      </Position>
+      <Position>
+        <Filename Value="listados.pas"/>
+        <Caret Line="7" Column="20" TopLine="154"/>
+      </Position>
+      <Position>
+        <Filename Value="listados.pas"/>
+        <Caret Line="250" Column="17" TopLine="231"/>
+      </Position>
+      <Position>
+        <Filename Value="florituras.pas"/>
+        <Caret Line="40" Column="22"/>
+      </Position>
+      <Position>
+        <Filename Value="listados.pas"/>
+        <Caret Line="220" Column="8" TopLine="201"/>
+      </Position>
+      <Position>
+        <Filename Value="listados.pas"/>
+        <Caret Line="57" Column="15" TopLine="39"/>
       </Position>
     </JumpHistory>
     <RunParams>

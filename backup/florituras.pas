@@ -37,7 +37,7 @@ procedure volver_al_menu(var op:char);
         repeat
         GOTOXY(67,41);
         readln(op);
-        until not(op<>0);
+        until (op='0');
     end;
 procedure titulo (tit:string);         // Título.
     begin
@@ -116,6 +116,14 @@ end;
 begin
     Colocar('+---------------┬--------------┬----------------------------------------------------------------+', lightblue, 10, 6);
     Colocar('| Fecha Infrac. | DNI          | Descripcion                                                    |', lightblue, 10, 7);
+    Colocar('+---------------+--------------+----------------------------------------------------------------+', lightblue, 10, 8);
+    Colocar('+---------------+--------------+----------------------------------------------------------------+', lightblue, 10, 30);
+    Colocar('Navegue usando las flechas laterales y pulse Esc para salir.', lightblue, 10, 32);
+end;
+    procedure interfaz_inf_cond;
+begin
+    Colocar('+---------------┬--------------┬----------------------------------------------------------------+', lightblue, 10, 6);
+    Colocar('| Fecha Infrac. | Puntos       | Descripcion                                                    |', lightblue, 10, 7);
     Colocar('+---------------+--------------+----------------------------------------------------------------+', lightblue, 10, 8);
     Colocar('+---------------+--------------+----------------------------------------------------------------+', lightblue, 10, 30);
     Colocar('Navegue usando las flechas laterales y pulse Esc para salir.', lightblue, 10, 32);

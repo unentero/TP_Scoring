@@ -54,7 +54,7 @@ begin
     cantpag := ceil(totalRegistros / 10);  // Fórmula correcta para páginas
     numpag := 1;
     interfaz_cond;
-
+    tecla:=#0;
     while tecla <> #27 do
     begin
         clrscr;
@@ -144,7 +144,79 @@ end;
       end;
     end;
   end;
-
+  procedure pagina_inf_cond(min, max: cardinal; datos: datos_infracciones; var arch_inf: ARCHIVO_INFRACCIONES; var contador: cardinal; var y: cardinal; n: cardinal;var pos:integer; condicion:boolean);
+    var
+    fecha: string;
+    Descuento: integer;
+    begin
+      seek(arch_inf, pos);
+      read(arch_inf, datos);
+      if condicion then
+      begin
+        inc(contador);
+        if (contador >= min) and (contador <= max) then
+        begin
+          fecha:=IntToStr(datos.fecha_infraccion.dia)+'-'+IntToStr(datos.fecha_infraccion.mes)+'-'+IntToStr(datos.fecha_infraccion.anio);
+          gotoxy(n+1, y);
+          write(fecha);
+          gotoxy(n + 17, y);
+          case datos.infrac of
+            1: Descuento:= 2;
+            2..17: Descuento:= 4;
+            18..28: Descuento := 5;
+            29..41: Descuento := 10;
+            42: Descuento := 20;
+           end;
+          end;
+          write(-Descuento);
+          gotoxy(n + 33, y);
+          case datos.infrac of
+            1: write('No respetar indicaciones Autoridad dirige Tránsito');
+            2: write('Conducir con Licencia Vencida o Caduca');
+            3: write('Licencia o documentación habilitante vencida');
+            4: write('Conducir sin anteojos o lentes contacto según Licencia');
+            5: write('Conducir con licencia conductor No Correspondiente');
+            6: write('Permitir Conducir con licencia conductor No Correspondiente');
+            7: write('Permitir Conducir c/licencia conductor No Correspondiente');
+            8: write('Sistemas o dispositivos de retención infantil');
+            9: write('No uso cinturón de seguridad');
+            10: write('Permitir Viajar personas impedidas en asiento delantero');
+            11: write('Girar a izquierda o derecha en lugar prohibido');
+            12: write('Marcha atrás en forma indebida');
+            13: write('Obstruccion de via');
+            14: write('Obstruir vía Transversal,Ciclovía,Vereda,Estac. reservado');
+            15: write('Obstruir lugar reservado Vehíc. Persona discapac. RAMPA discapac.');
+            16: write('No ceder Paso a Polic,Bombe,Ambula,Serv.Pub.o Urgen.');
+            17: write('No respetar Senda Peatonal,Paso Peatonal');
+            18: write('Conducir utilizando Celular,Auriculares,Reproductor de video');
+            19: write('Conductor redactando,enviando mensaje de texto');
+            20: write('Circulación en sentido contrario');
+            21: write('Invasión parcial de vías');
+            22: write('No respetar paso o cartel PARE en bocacalle');
+            23: write('Interrumpir Filas Escolares');
+            24: write('Prohibido circular según DÍA,HORA,CARAC.VEHIC y.u OCUPANTES');
+            25: write('Infracción régimen motovehículos');
+            26: write('Violar Luz Roja');
+            27: write('Violacion de semáforos (taxis, escolares , pasajeros, remises. Prestando servicio)');
+            28: write('Exceso de velocidad de 10% a 30% ms de la velocidad permitida');
+            29: write('No Cumplir Normas sin requisitos Vehículos de Transporte con habilitación');
+            30: write('Requisitos de los vehículos de transporte de carga sin habilitación');
+            31: write('Violación de barreras ferroviarias');
+            32: write('Violación de límites de velocidad mayor al 30% permitido');
+            33: write('Requisitos de los vehículos de transporte de carga');
+            34: write('Placas de dominio');
+            35: write('Circular con antiradar o antifoto');
+            36: write('Conducción peligrosa');
+            37: write('Conducir bajo la influencia de alcohol');
+            38: write('Negativa a someterse a control de alcoholemia, estupefacientes');
+            39: write('Taxis, transporte de escolares, remises, vehículos de fantasía sin autorización');
+            40: write('Conducir bajo los efectos de estupefacientes');
+            41: write('Incumplir obligaciones legales');
+            42: write('Participar u organizar picadas');
+          end;
+          y := y + 2;
+        end;
+      end;
 procedure ListarInfraccionesEntreFechas(var arch_inf: ARCHIVO_INFRACCIONES;var fechaInicio, fechaFin: FECHA);
 var
   datos: datos_infracciones;
@@ -226,7 +298,7 @@ begin
   while tecla <> #27 do
   begin
     clrscr;
-    interfaz_inf;
+    interfaz_inf_cond;
     contador := 0;
     y := 10;
     minPage := (numpag - 1) * 10 + 1;
@@ -245,7 +317,7 @@ begin
         inc(contador);
         if (contador >= minPage) and (contador <= maxPage) then
         begin
-          pagina_inf(minPage, maxPage, datos, arch_inf, contador, y, 10, pos,condicion);
+          pagina_inf_cond(minPage, maxPage, datos, arch_inf, contador, y, 10, pos,condicion);
           inc(y);
         end;
       end;
