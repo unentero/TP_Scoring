@@ -6,13 +6,16 @@ uses
 
 procedure AMBC_INFRACCIONES (var arch_cond: ARCHIVO_CONDUCTORES; var arch_inf:ARCHIVO_INFRACCIONES; var arbol_dni:PUNTERO;var arbol_apynom:PUNTERO;var arch_infr: ARCHIVO_INFRACCIONES);
 implementation
+{
+  1: Descuento:= 2; 2..17: Descuento:= 4; 18..28: Descuento := 5; 29..41: Descuento := 10; 42: Descuento := 20;
+}
 Procedure Pag_infracciones(numpag: integer; index: longword);
 var
   x, y: cardinal;
 begin
   case numpag of
     0: begin
-      colocar('1      No respetar indicaciones Autoridad dirige Transito                                                  ', 15, 10, 10);
+      colocar('1      No respetar indicaciones Autoridad dirige Transito                                                 ', 15, 10, 10);
       colocar('2      Conducir con Licencia Vencida o Caduca                                                               ', 15, 10, 11);
       colocar('3      Licencia o documentacion habilitante vencida (transporte publico)                                  ', 15, 10, 12);
       colocar('4      Conducir sin anteojos o lentes contacto segun Licencia                                              ', 15, 10, 13);

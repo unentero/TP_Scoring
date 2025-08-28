@@ -139,8 +139,9 @@
       <Unit>
         <Filename Value="amc_infracciones.pas"/>
         <UnitName Value="AMC_INFRACCIONES"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="2"/>
-        <CursorPos X="3" Y="10"/>
+        <CursorPos Y="9"/>
         <UsageCount Value="103"/>
         <Loaded Value="True"/>
       </Unit>
@@ -179,7 +180,6 @@
       <Unit>
         <Filename Value="listados.pas"/>
         <UnitName Value="LISTADOS"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="7"/>
         <TopLine Value="289"/>
         <CursorPos X="26" Y="320"/>
