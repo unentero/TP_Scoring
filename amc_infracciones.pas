@@ -281,7 +281,11 @@ abrir_archivo_infracciones(arch_inf);
     alta_infracciones(arch_inf,x,infraccion);
     modificacion_scoring(arch_cond,pos,infraccion);
     end
-    else if pos=0 then colocar('El conductor buscado no se encuentra en el Sistema, este caso será enviado a Legales',red,42,13);
+    else if pos=-1 then
+    begin
+    colocar('El conductor buscado no se encuentra en el Sistema, este caso será enviado a Legales',red,20,13);
+    readkey;
+    end;
    close(arch_cond);
    close(arch_inf);
     end;
